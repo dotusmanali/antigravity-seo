@@ -12,7 +12,7 @@ user-invokable: true
 argument-hint: "<seed-keyword or url>"
 license: MIT
 metadata:
-  author: Muhammad Usman Ali
+  author: dotusmanali
   original_author: "Lutfiya Miller (Pro Hub Challenge Winner)"
   version: "1.9.6"
   category: seo

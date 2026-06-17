@@ -10,7 +10,7 @@ argument-hint: "[command] <url>"
 license: MIT
 compatibility: "Requires Firecrawl MCP server"
 metadata:
-  author: Muhammad Usman Ali
+  author: dotusmanali
   version: "1.7.2"
   category: seo
 ---

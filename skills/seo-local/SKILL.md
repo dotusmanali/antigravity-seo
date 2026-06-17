@@ -14,7 +14,7 @@ user-invokable: true
 argument-hint: "[url]"
 license: MIT
 metadata:
-  author: Muhammad Usman Ali
+  author: dotusmanali
   version: "1.9.6"
   category: seo
 ---

@@ -14,7 +14,7 @@ argument-hint: "[command] [query]"
 license: MIT
 compatibility: "Requires DataForSEO MCP server"
 metadata:
-  author: Muhammad Usman Ali
+  author: dotusmanali
   version: "1.9.6"
   category: seo
 ---

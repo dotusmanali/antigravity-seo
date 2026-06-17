@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This repository contains **Antigravity SEO**, a Antigravity-first SEO analysis skill suite synced from `Muhammad Usman Ali/antigravity-seo` v1.9.6 plus post-tag fixes.
+This repository contains **Antigravity SEO**, a Antigravity-first SEO analysis skill suite synced from `dotusmanali/antigravity-seo` v1.9.6 plus post-tag fixes.
 
 The canonical skill tree lives under `skills/`. The main orchestrator is `skills/seo/SKILL.md`; the old top-level `seo/` folder is intentionally not used.
 

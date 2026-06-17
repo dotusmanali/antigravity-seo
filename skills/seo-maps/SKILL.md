@@ -15,7 +15,7 @@ argument-hint: "[command] [url|keyword|location]"
 license: MIT
 compatibility: "DataForSEO MCP for Tier 1+, Google Maps API for Tier 2"
 metadata:
-  author: Muhammad Usman Ali
+  author: dotusmanali
   version: "1.9.6"
   category: seo
 ---

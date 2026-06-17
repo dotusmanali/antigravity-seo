@@ -11,7 +11,7 @@ user-invokable: true
 argument-hint: "<url> [keyword]"
 license: MIT
 metadata:
-  author: Muhammad Usman Ali
+  author: dotusmanali
   original_author: "Florian Schmitz (Pro Hub Challenge)"
   version: "1.9.6"
   category: seo

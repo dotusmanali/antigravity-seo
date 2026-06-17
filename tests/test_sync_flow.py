@@ -80,13 +80,13 @@ def test_authed_headers_degrades_when_gh_missing(monkeypatch):
 def test_validate_github_url_blocks_non_github_host():
     sf = load_sync_flow_module()
     with pytest.raises(ValueError, match="Blocked"):
-        sf._validate_github_url("https://evil.example.com/repos/Muhammad Usman Ali/flow/contents/file.md")
+        sf._validate_github_url("https://evil.example.com/repos/dotusmanali/flow/contents/file.md")
 
 
 def test_validate_github_url_blocks_userinfo_ssrf():
     sf = load_sync_flow_module()
     with pytest.raises(ValueError, match="Blocked"):
-        sf._validate_github_url("https://api.github.com@evil.com/repos/Muhammad Usman Ali/flow/contents/file.md")
+        sf._validate_github_url("https://api.github.com@evil.com/repos/dotusmanali/flow/contents/file.md")
 
 
 def test_validate_github_url_allows_github_api():

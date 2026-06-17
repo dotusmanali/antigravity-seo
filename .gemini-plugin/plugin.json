@@ -3,7 +3,7 @@
   "version": "1.9.6+antigravity.5",
   "description": "Comprehensive SEO analysis skill suite for Antigravity. Includes technical SEO, content quality, schema markup, image optimization, sitemap architecture, GEO/AEO, backlinks, local SEO, maps intelligence, semantic clustering, SXO, drift monitoring, e-commerce SEO, Google APIs, and deterministic reporting workflows.",
   "author": {
-    "name": "Muhammad Usman Ali",
+    "name": "dotusmanali",
     "url": "https://github.com/dotusmanali"
   },
   "homepage": "https://github.com/dotusmanali/antigravity-seo",
@@ -43,7 +43,7 @@
     "displayName": "Antigravity SEO",
     "shortDescription": "Run SEO audits, schema checks, GEO analysis, and reports in Antigravity.",
     "longDescription": "Antigravity SEO is a local SEO analysis suite with 1 orchestrator, 26 specialist workflows, 24 Antigravity agent profiles, shared cache artifacts, optional API integrations, and deterministic headless wrappers for repeatable audits and reports.",
-    "developerName": "Muhammad Usman Ali",
+    "developerName": "dotusmanali",
     "category": "Productivity",
     "capabilities": [
       "Interactive",

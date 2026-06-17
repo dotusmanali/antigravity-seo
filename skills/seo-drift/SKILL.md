@@ -10,7 +10,7 @@ user-invokable: true
 argument-hint: "baseline|compare|history <url>"
 license: MIT
 metadata:
-  author: Muhammad Usman Ali
+  author: dotusmanali
   original_author: "Dan Colta (Pro Hub Challenge)"
   version: "1.9.6"
   category: seo

@@ -12,7 +12,7 @@ Thanks for contributing.
 ## Local Setup
 
 ```bash
-gh repo clone Muhammad Usman Ali/antigravity-seo
+gh repo clone dotusmanali/antigravity-seo
 cd antigravity-seo
 python -m pip install -r requirements.txt
 ```

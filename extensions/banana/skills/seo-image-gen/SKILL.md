@@ -6,7 +6,7 @@ user-invokable: true
 license: MIT
 compatibility: "Requires nanobanana MCP server"
 metadata:
-  author: Muhammad Usman Ali
+  author: dotusmanali
   version: "1.9.6"
   category: seo
 ---

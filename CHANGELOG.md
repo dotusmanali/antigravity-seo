@@ -14,7 +14,7 @@
 
 ### Added
 
-- Synced Antigravity SEO to `Muhammad Usman Ali/antigravity-seo` `main` at `a9cf338`.
+- Synced Antigravity SEO to `dotusmanali/antigravity-seo` `main` at `a9cf338`.
 - Added Antigravity plugin manifest at `.gemini-plugin/plugin.json`.
 - Expanded to 26 specialist workflows and 24 Antigravity TOML agent profiles.
 - Added upstream backlink, cluster, local, maps, Google APIs, SXO, drift, ecommerce, FLOW, DataForSEO, image-gen, and Firecrawl workflows.
