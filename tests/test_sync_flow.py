@@ -46,7 +46,7 @@ def test_synced_prompt_files_have_attribution_headers():
         if md_file.name == "README.md":
             continue
         content = md_file.read_text(encoding="utf-8")
-        if not content.startswith("<!-- Source: github.com/Muhammad Usman Ali/flow"):
+        if not content.startswith("<!-- Source: github.com/dotusmanali/flow"):
             failures.append(str(md_file.relative_to(ROOT)))
     assert not failures
 
@@ -91,7 +91,7 @@ def test_validate_github_url_blocks_userinfo_ssrf():
 
 def test_validate_github_url_allows_github_api():
     sf = load_sync_flow_module()
-    sf._validate_github_url("https://api.github.com/repos/Muhammad Usman Ali/flow/contents/README.md")
+    sf._validate_github_url("https://api.github.com/repos/dotusmanali/flow/contents/README.md")
 
 
 def test_record_write_blocks_path_traversal(tmp_path):

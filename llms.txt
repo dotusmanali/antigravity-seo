@@ -15,7 +15,7 @@
 ## Install
 
 - Private preview: `gh repo clone Muhammad Usman Ali/antigravity-seo && cd antigravity-seo && bash install.sh`
-- Future public install: `curl -fsSL https://raw.githubusercontent.com/Muhammad Usman Ali/antigravity-seo/main/install.sh | bash`
+- Future public install: `curl -fsSL https://raw.githubusercontent.com/dotusmanali/antigravity-seo/main/install.sh | bash`
 - Windows private preview: `gh repo clone Muhammad Usman Ali/antigravity-seo; cd antigravity-seo; powershell -ExecutionPolicy Bypass -File .\install.ps1`
 
 ## Core Docs

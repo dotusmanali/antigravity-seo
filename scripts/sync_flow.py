@@ -16,7 +16,7 @@ import urllib.parse
 import requests
 
 
-API_ROOT = "https://api.github.com/repos/Muhammad Usman Ali/flow/contents"
+API_ROOT = "https://api.github.com/repos/dotusmanali/flow/contents"
 _ALLOWED_HOST = "api.github.com"
 _SIZE_LIMIT = 5 * 1024 * 1024  # 5 MB
 
@@ -114,7 +114,7 @@ def list_markdown_files(path, ref, headers):
 
 def attribution_header(today):
     return (
-        "<!-- Source: github.com/Muhammad Usman Ali/flow | License: CC BY 4.0 | "
+        "<!-- Source: github.com/dotusmanali/flow | License: CC BY 4.0 | "
         f"Synced: {today} -->"
     )
 

@@ -17,7 +17,7 @@ $SettingsFile = Join-Path $AntigravityRoot "settings.json"
 # Check prerequisites
 if (-not (Test-Path $SeoSkillDir)) {
     Write-Host "x Antigravity SEO is not installed." -ForegroundColor Red
-    Write-Host "  Install it first: irm https://raw.githubusercontent.com/Muhammad Usman Ali/antigravity-seo/main/install.ps1 | iex"
+    Write-Host "  Install it first: irm https://raw.githubusercontent.com/dotusmanali/antigravity-seo/main/install.ps1 | iex"
     exit 1
 }
 Write-Host "v Antigravity SEO detected" -ForegroundColor Green

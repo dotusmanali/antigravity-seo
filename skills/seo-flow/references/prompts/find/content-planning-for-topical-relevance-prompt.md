@@ -1,4 +1,4 @@
-<!-- Source: github.com/Muhammad Usman Ali/flow | License: CC BY 4.0 | Synced: 2026-04-26 -->
+<!-- Source: github.com/dotusmanali/flow | License: CC BY 4.0 | Synced: 2026-04-26 -->
 ---
 title: "Content planning for Topical Relevance Prompt"
 description: "Content planning for Topical Relevance Prompt"

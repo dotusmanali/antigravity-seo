@@ -15,7 +15,7 @@ $SkillsRoot = Join-Path $AntigravityRoot "skills"
 $SeoSkillDir = Join-Path $SkillsRoot "seo"
 if (-not (Test-Path $SeoSkillDir)) {
     Write-Host "✗ Antigravity SEO is not installed." -ForegroundColor Red
-    Write-Host "  Install it first: irm https://raw.githubusercontent.com/Muhammad Usman Ali/antigravity-seo/main/install.ps1 | iex"
+    Write-Host "  Install it first: irm https://raw.githubusercontent.com/dotusmanali/antigravity-seo/main/install.ps1 | iex"
     exit 1
 }
 Write-Host "✓ Antigravity SEO detected" -ForegroundColor Green

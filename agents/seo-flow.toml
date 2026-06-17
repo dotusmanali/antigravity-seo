@@ -24,7 +24,7 @@ When given a URL and a FLOW stage (find, leverage, optimize, win, or local):
 ```
 # FLOW Analysis: {STAGE} — {domain}
 
-> Framework and prompts © Daniel Agrici, CC BY 4.0 — github.com/Muhammad Usman Ali/flow
+> Framework and prompts © Daniel Agrici, CC BY 4.0 — github.com/dotusmanali/flow
 
 ## Prompts Applied
 - {prompt-filename}: {one-line rationale}

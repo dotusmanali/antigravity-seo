@@ -32,7 +32,7 @@ Check these cache files when present:
 - If missing, corrupt, or irrelevant: continue with fresh evidence
 - If the user says "refresh" or "re-run": ignore cache reads and overwrite on write
 
-> Framework and prompts © Daniel Agrici, CC BY 4.0 — github.com/Muhammad Usman Ali/flow
+> Framework and prompts © Daniel Agrici, CC BY 4.0 — github.com/dotusmanali/flow
 
 FLOW is an evidence-led SEO operating model built for the AI-search era. Antigravity SEO
 integrates the FLOW prompt library (41 prompts across 5 stages) so every analysis can
@@ -54,7 +54,7 @@ Load prompt files on demand — only for the stage the user requests.
 | `/seo flow win [url]` | Win-stage: BOFU, conversion rate, dual-surface scorecard (3 prompts) |
 | `/seo flow local [url]` | Local-stage: GBP optimization, meta, title tags, local audits (11 prompts) |
 | `/seo flow prompts` | Full index of all 41 prompts — stage, name, trigger conditions |
-| `/seo flow sync` | Pull latest prompt files from github.com/Muhammad Usman Ali/flow |
+| `/seo flow sync` | Pull latest prompt files from github.com/dotusmanali/flow |
 
 ---
 
@@ -134,7 +134,7 @@ Load on-demand — do NOT load all at startup:
 Every `/seo flow` activation (any sub-command) outputs before analysis:
 
 ```
-Framework and prompts © Daniel Agrici, CC BY 4.0 — github.com/Muhammad Usman Ali/flow
+Framework and prompts © Daniel Agrici, CC BY 4.0 — github.com/dotusmanali/flow
 ```
 
 Do not omit or modify the attribution.

@@ -1,4 +1,4 @@
-<!-- Source: github.com/Muhammad Usman Ali/flow | License: CC BY 4.0 | Synced: 2026-04-26 -->
+<!-- Source: github.com/dotusmanali/flow | License: CC BY 4.0 | Synced: 2026-04-26 -->
 ---
 title: "Follow-up Prompt 1"
 description: "Follow-up Prompt 1"

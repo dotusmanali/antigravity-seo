@@ -1,7 +1,7 @@
 <!--
 FLOW Framework — Operational Prompt Library
 © Daniel Agrici | License: CC BY 4.0
-Source: github.com/Muhammad Usman Ali/flow
+Source: github.com/dotusmanali/flow
 Attribution required when reproducing or adapting these prompts.
 -->
 

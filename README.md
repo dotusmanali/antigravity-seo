@@ -47,13 +47,13 @@ An autonomous, native SEO analysis skill suite built for **Antigravity (Gemini C
 ### One-Line Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/Muhammad Usman Ali/antigravity-seo/v1.9.6-antigravity.5/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/dotusmanali/antigravity-seo/v1.9.6-antigravity.5/install.sh | bash
 ```
 
 Windows:
 
 ```powershell
-irm https://raw.githubusercontent.com/Muhammad Usman Ali/antigravity-seo/v1.9.6-antigravity.5/install.ps1 | iex
+irm https://raw.githubusercontent.com/dotusmanali/antigravity-seo/v1.9.6-antigravity.5/install.ps1 | iex
 ```
 
 ### Review Before Installing
