@@ -33,7 +33,7 @@ HERO_PATH = ROOT / "scripts" / "generate_hero.py"
 WRITE_SKILL = ROOT / "skills" / "blog-write" / "SKILL.md"
 REWRITE_SKILL = ROOT / "skills" / "blog-rewrite" / "SKILL.md"
 ORCHESTRATOR = ROOT / "skills" / "blog" / "SKILL.md"
-REVIEWER = ROOT / "agents" / "blog-reviewer.md"
+REVIEWER = ROOT / "agents" / "blog-reviewer.toml"
 PYPROJECT = ROOT / "pyproject.toml"
 
 
@@ -160,9 +160,9 @@ def test_orchestrator_references_contract() -> None:
 def test_reviewer_emits_blocking_line() -> None:
     text = REVIEWER.read_text(encoding="utf-8")
     assert "BLOCKING:" in text, \
-        "agents/blog-reviewer.md must emit a `BLOCKING:` line in its scorecard"
+        "agents/blog-reviewer.toml must emit a `BLOCKING:` line in its scorecard"
     assert "Blocking Decision" in text or "Blocking decision" in text, \
-        "agents/blog-reviewer.md must document the blocking decision rules"
+        "agents/blog-reviewer.toml must document the blocking decision rules"
 
 
 def test_pyproject_declares_presentation_group() -> None:

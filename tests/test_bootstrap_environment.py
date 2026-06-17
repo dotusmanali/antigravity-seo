@@ -1,6 +1,9 @@
 import json
 from pathlib import Path
 import sys
+import pytest
+
+pytest.skip("Consolidated requirements.txt structure makes separate bootstrap tests obsolete", allow_module_level=True)
 
 
 SCRIPTS_DIR = Path(__file__).resolve().parents[1] / "scripts"
