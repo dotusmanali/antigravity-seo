@@ -80,6 +80,36 @@ main() {
     REPO_REF="${GEMINI_SEO_REF:-v1.9.6-antigravity.5}"
     PYTHON_BIN="$(resolve_python)" || { echo "[ERROR] Python 3 is required but not installed."; exit 1; }
     SUITE_SKILL_DIRS=(
+        blog
+        blog-analyze
+        blog-audio
+        blog-audit
+        blog-brand
+        blog-brief
+        blog-calendar
+        blog-cannibalization
+        blog-chart
+        blog-cluster
+        blog-discourse
+        blog-factcheck
+        blog-flow
+        blog-geo
+        blog-google
+        blog-image
+        blog-locale-audit
+        blog-localize
+        blog-multilingual
+        blog-notebooklm
+        blog-outline
+        blog-persona
+        blog-repurpose
+        blog-rewrite
+        blog-schema
+        blog-seo-check
+        blog-strategy
+        blog-taxonomy
+        blog-translate
+        blog-write
         seo
         seo-audit
         seo-backlinks
@@ -89,8 +119,8 @@ main() {
         seo-dataforseo
         seo-drift
         seo-ecommerce
-        seo-flow
         seo-firecrawl
+        seo-flow
         seo-geo
         seo-google
         seo-hreflang
@@ -176,6 +206,7 @@ main() {
     echo "[INFO] Installing agent profiles..."
     if [ -d "${TEMP_DIR}/antigravity-seo/agents" ]; then
         cp "${TEMP_DIR}/antigravity-seo/agents/"*.toml "${AGENT_DIR}/"
+        cp "${TEMP_DIR}/antigravity-seo/agents/"*.md "${AGENT_DIR}/" 2>/dev/null || true
     fi
 
     BOOTSTRAP_SCRIPT="${SKILL_DIR}/scripts/bootstrap_environment.py"

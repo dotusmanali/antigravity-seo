@@ -11,7 +11,7 @@ argument-hint: "[url or plan]"
 license: MIT
 metadata:
   author: dotusmanali
-  version: "1.9.6"
+  version: "1.9.6+antigravity.5"
   category: seo
 ---
 

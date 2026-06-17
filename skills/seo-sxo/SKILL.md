@@ -13,7 +13,7 @@ license: MIT
 metadata:
   author: dotusmanali
   original_author: "Florian Schmitz (Pro Hub Challenge)"
-  version: "1.9.6"
+  version: "1.9.6+antigravity.5"
   category: seo
 ---
 

@@ -7,6 +7,36 @@ $skillsRoot = Join-Path $antigravityRoot "skills"
 $agentDir = Join-Path $antigravityRoot "agents"
 
 $skillNames = @(
+    "blog",
+    "blog-analyze",
+    "blog-audio",
+    "blog-audit",
+    "blog-brand",
+    "blog-brief",
+    "blog-calendar",
+    "blog-cannibalization",
+    "blog-chart",
+    "blog-cluster",
+    "blog-discourse",
+    "blog-factcheck",
+    "blog-flow",
+    "blog-geo",
+    "blog-google",
+    "blog-image",
+    "blog-locale-audit",
+    "blog-localize",
+    "blog-multilingual",
+    "blog-notebooklm",
+    "blog-outline",
+    "blog-persona",
+    "blog-repurpose",
+    "blog-rewrite",
+    "blog-schema",
+    "blog-seo-check",
+    "blog-strategy",
+    "blog-taxonomy",
+    "blog-translate",
+    "blog-write",
     "seo",
     "seo-audit",
     "seo-backlinks",
@@ -16,8 +46,8 @@ $skillNames = @(
     "seo-dataforseo",
     "seo-drift",
     "seo-ecommerce",
-    "seo-flow",
     "seo-firecrawl",
+    "seo-flow",
     "seo-geo",
     "seo-google",
     "seo-hreflang",
@@ -37,6 +67,11 @@ $skillNames = @(
 )
 
 $agentNames = @(
+    "blog-researcher",
+    "blog-reviewer",
+    "blog-seo",
+    "blog-translator",
+    "blog-writer",
     "seo-backlinks",
     "seo-cluster",
     "seo-competitor-pages",
@@ -44,8 +79,8 @@ $agentNames = @(
     "seo-dataforseo",
     "seo-drift",
     "seo-ecommerce",
-    "seo-flow",
     "seo-firecrawl",
+    "seo-flow",
     "seo-geo",
     "seo-google",
     "seo-hreflang",
@@ -82,3 +117,5 @@ foreach ($agent in $agentNames) {
 }
 
 Write-Host "[OK] Antigravity SEO uninstalled." -ForegroundColor Green
+
+# Scripts: blog_preflight.py, blog_render.py, generate_hero.py

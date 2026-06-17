@@ -186,6 +186,36 @@ $repoRef = if ($env:GEMINI_SEO_REF) { $env:GEMINI_SEO_REF } else { "v1.9.6-antig
 $skipPlaywrightBrowser = Test-Truthy $env:GEMINI_SEO_SKIP_PLAYWRIGHT_BROWSER
 $playwrightWithDeps = Test-Truthy $env:GEMINI_SEO_PLAYWRIGHT_WITH_DEPS
 $suiteSkillDirs = @(
+    "blog",
+    "blog-analyze",
+    "blog-audio",
+    "blog-audit",
+    "blog-brand",
+    "blog-brief",
+    "blog-calendar",
+    "blog-cannibalization",
+    "blog-chart",
+    "blog-cluster",
+    "blog-discourse",
+    "blog-factcheck",
+    "blog-flow",
+    "blog-geo",
+    "blog-google",
+    "blog-image",
+    "blog-locale-audit",
+    "blog-localize",
+    "blog-multilingual",
+    "blog-notebooklm",
+    "blog-outline",
+    "blog-persona",
+    "blog-repurpose",
+    "blog-rewrite",
+    "blog-schema",
+    "blog-seo-check",
+    "blog-strategy",
+    "blog-taxonomy",
+    "blog-translate",
+    "blog-write",
     "seo",
     "seo-audit",
     "seo-backlinks",
@@ -195,8 +225,8 @@ $suiteSkillDirs = @(
     "seo-dataforseo",
     "seo-drift",
     "seo-ecommerce",
-    "seo-flow",
     "seo-firecrawl",
+    "seo-flow",
     "seo-geo",
     "seo-google",
     "seo-hreflang",
@@ -277,6 +307,7 @@ try {
     $agentsSource = Join-Path $checkoutDir "agents"
     if (Test-Path $agentsSource) {
         Copy-Item -Path (Join-Path $agentsSource "*.toml") -Destination $agentDir -Force
+        Copy-Item -Path (Join-Path $agentsSource "*.md") -Destination $agentDir -Force
     }
 
     $bootstrapScript = Join-Path $skillDir "scripts\bootstrap_environment.py"

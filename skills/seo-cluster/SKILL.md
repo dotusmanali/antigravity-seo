@@ -14,7 +14,7 @@ license: MIT
 metadata:
   author: dotusmanali
   original_author: "Lutfiya Miller (Pro Hub Challenge Winner)"
-  version: "1.9.6"
+  version: "1.9.6+antigravity.5"
   category: seo
 ---
 

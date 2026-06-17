@@ -16,7 +16,7 @@ license: MIT
 compatibility: "DataForSEO MCP for Tier 1+, Google Maps API for Tier 2"
 metadata:
   author: dotusmanali
-  version: "1.9.6"
+  version: "1.9.6+antigravity.5"
   category: seo
 ---
 

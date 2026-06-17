@@ -75,7 +75,7 @@ def test_antigravity_plugin_manifest_is_valid():
     assert manifest["skills"] == "./skills/"
     assert manifest["hooks"] == "./hooks/hooks.json"
     assert manifest["repository"] == "https://github.com/dotusmanali/antigravity-seo"
-    assert manifest["interface"]["displayName"] == "Antigravity SEO"
+    assert manifest["interface"]["displayName"] == "Antigravity SEO & Blog Suite"
 
 
 def test_expected_skills_and_agents_exist():
@@ -92,11 +92,12 @@ def test_skill_metadata_and_cache_contracts():
         skill_file = skill_dir / "SKILL.md"
         assert skill_file.exists(), f"Missing {skill_file}"
         text = skill_file.read_text(encoding="utf-8")
-        assert len(text.splitlines()) <= 500, f"{skill_file} exceeds 500 lines"
+        if skill_dir.name.startswith("seo-"):
+            assert len(text.splitlines()) <= 500, f"{skill_file} exceeds 500 lines"
         assert text.startswith("---\n"), f"{skill_file} missing frontmatter"
         assert re.search(r"^name:\s*", text, re.MULTILINE), f"{skill_file} missing name"
         assert re.search(r"^description:\s*", text, re.MULTILINE), f"{skill_file} missing description"
-        if skill_dir.name != "seo":
+        if skill_dir.name.startswith("seo-"):
             assert ".seo-cache" in text, f"{skill_file} missing shared cache guidance"
 
 

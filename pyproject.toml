@@ -35,3 +35,12 @@ classifiers = [
 [project.urls]
 Homepage = "https://github.com/dotusmanali/antigravity-seo"
 Repository = "https://github.com/dotusmanali/antigravity-seo"
+
+[project.optional-dependencies]
+presentation = [
+    "patchright>=1.40,<2.0",
+    "weasyprint>=60.2,<65",
+    "google-genai>=1.0.0,<2.0.0",
+    "requests>=2.32.4,<3.0.0",
+    "markdown>=3.5,<4.0",
+]

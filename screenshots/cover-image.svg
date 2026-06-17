@@ -1,119 +1,163 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 450" width="100%" height="100%">
-  <defs>
-    <!-- Background Gradient -->
-    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#050811" />
-      <stop offset="50%" stop-color="#090d1f" />
-      <stop offset="100%" stop-color="#0c152b" />
-    </linearGradient>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 1680 768" width="100%"
+     preserveAspectRatio="xMidYMid meet" role="img"
+     aria-label="Antigravity Blog — The Content Operating System"
+     font-family="JetBrains Mono, monospace">
+<title>Antigravity Blog — AI-Powered Content Authority Skill for Antigravity CLI</title>
+<desc>OS-window banner. Dark warm title bar with traffic lights. Dark CRT terminal inside with ANTIGRAVITY BLOG figlet logo in brand-orange vertical gradient, animated row-highlight scanner cycling through 7 /blog commands.</desc>
 
-    <!-- Neon Accent Gradients -->
-    <linearGradient id="accent-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00f2fe" />
-      <stop offset="100%" stop-color="#4facfe" />
-    </linearGradient>
-    <linearGradient id="accent-green" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#38ef7d" />
-      <stop offset="100%" stop-color="#11998e" />
-    </linearGradient>
-    <linearGradient id="accent-purple" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#b224ef" />
-      <stop offset="100%" stop-color="#7579ff" />
-    </linearGradient>
-    <linearGradient id="accent-orange" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#ff9900" />
-      <stop offset="100%" stop-color="#ff5500" />
-    </linearGradient>
+<defs>
+  <style type="text/css"><![CDATA[
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+    .ascii      { font-family: 'JetBrains Mono', 'Cascadia Mono', 'Menlo', monospace; font-size: 18px; font-weight: 700; fill: url(#orangeGrad); }
+    .tagline    { font-family: 'Inter', system-ui, sans-serif; font-size: 28px; font-weight: 500; fill: #F5F4ED; letter-spacing: -0.3px; }
+    .sysline    { font-family: 'JetBrains Mono', monospace; font-size: 11px; fill: #7A3A1F; letter-spacing: 1.8px; }
+    .sysline-accent { fill: #D97757; }
+    .hud        { font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: #7A3A1F; letter-spacing: 1.6px; }
+    .hud-muted  { font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: #5A5750; letter-spacing: 1.6px; }
+    .cmd        { font-family: 'JetBrains Mono', monospace; font-size: 30px; fill: #5A5750; letter-spacing: 0.5px; }
+    .cmd-active { fill: #F5F4ED; }
+    .cmd-slash  { fill: #7A3A1F; }
+    .cmd-arg    { fill: #7A3A1F; opacity: 0.7; }
+    .cmd-head   { font-family: 'JetBrains Mono', monospace; font-size: 11px; fill: #D97757; letter-spacing: 2px; opacity: 0.65; }
+    .cmd-head-b { fill: #7A3A1F; }
+    .accent-line{ fill: #D97757; }
+    .live-dot   { fill: #D97757; }
+    .win-title  { font-family: 'JetBrains Mono', monospace; font-size: 15px; fill: #E0D2C4; font-weight: 600; }
+  ]]></style>
 
-    <!-- Glow Filters -->
-    <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="15" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
-    <filter id="glow-green" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="8" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
-  </defs>
+  <linearGradient id="orangeGrad" x1="0" y1="-0.3" x2="0" y2="1.3" gradientUnits="objectBoundingBox">
+    <stop offset="0%"   stop-color="#F5B095"/>
+    <stop offset="25%"  stop-color="#E89270"/>
+    <stop offset="50%"  stop-color="#D97757"/>
+    <stop offset="75%"  stop-color="#7A3A1F"/>
+    <stop offset="100%" stop-color="#5C2A14"/>
+    <animate attributeName="y1" values="-0.3;0.3;-0.3" dur="4.2s" repeatCount="indefinite"/>
+    <animate attributeName="y2" values="0.7;1.3;0.7"   dur="4.2s" repeatCount="indefinite"/>
+  </linearGradient>
 
-  <style>
-    .title { font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif; font-weight: 900; font-size: 58px; fill: #ffffff; letter-spacing: 2px; }
-    .subtitle { font-family: 'Inter', system-ui, sans-serif; font-weight: 500; font-size: 20px; fill: #94a3b8; letter-spacing: 0.5px; }
-    .stat-val { font-family: 'Outfit', 'Inter', system-ui, sans-serif; font-weight: 800; font-size: 38px; fill: #ffffff; }
-    .stat-lbl { font-family: 'Inter', system-ui, sans-serif; font-weight: 600; font-size: 14px; fill: #64748b; letter-spacing: 1px; text-transform: uppercase; }
-    .feature-text { font-family: 'Inter', system-ui, sans-serif; font-weight: 500; font-size: 13px; fill: #cbd5e1; }
-    .badge-text { font-family: 'Inter', system-ui, sans-serif; font-weight: 700; font-size: 12px; fill: #00f2fe; letter-spacing: 1px; }
-  </style>
+  <pattern id="scanlines" x="0" y="0" width="3" height="3" patternUnits="userSpaceOnUse">
+    <rect width="3" height="2" fill="transparent"/>
+    <rect x="0" y="2" width="3" height="1" fill="rgba(0,0,0,0.18)"/>
+  </pattern>
+</defs>
 
-  <!-- Background -->
-  <rect width="1200" height="450" fill="url(#bg-grad)" />
+<!-- OS window shell (dark) -->
+<rect x="0.5" y="0.5" width="1679" height="767" rx="10" fill="#2A2520" stroke="#3A312A" stroke-width="1"/>
+<path d="M 0 10 Q 0 0 10 0 L 1670 0 Q 1680 0 1680 10 L 1680 48 L 0 48 Z" fill="#2A2520"/>
+<line x1="0" y1="48" x2="1680" y2="48" stroke="#3A312A" stroke-width="1"/>
+<text x="20" y="29" class="win-title">antigravity-blog.app — Terminal · /blog write</text>
+<circle cx="1596" cy="24" r="9" fill="#fbbf24" stroke="#3A312A" stroke-width="0.7"/>
+<circle cx="1624" cy="24" r="9" fill="#10b981" stroke="#3A312A" stroke-width="0.7"/>
+<circle cx="1652" cy="24" r="9" fill="#ef4444" stroke="#3A312A" stroke-width="0.7"/>
 
-  <!-- Grid Pattern Overlay -->
-  <g opacity="0.05">
-    <path d="M 0,50 L 1200,50 M 0,100 L 1200,100 M 0,150 L 1200,150 M 0,200 L 1200,200 M 0,250 L 1200,250 M 0,300 L 1200,300 M 0,350 L 1200,350 M 0,400 L 1200,400" stroke="#ffffff" stroke-width="1" />
-    <path d="M 100,0 L 100,450 M 200,0 L 200,450 M 300,0 L 300,450 M 400,0 L 400,450 M 500,0 L 500,450 M 600,0 L 600,450 M 700,0 L 700,450 M 800,0 L 800,450 M 900,0 L 900,450 M 1000,0 L 1000,450 M 1100,0 L 1100,450" stroke="#ffffff" stroke-width="1" />
+<g transform="translate(0, 48)">
+  <rect width="1680" height="720" fill="#1F1B16"/>
+  <rect width="1680" height="720" fill="url(#scanlines)" opacity="0.45"/>
+
+  <rect x="0" y="0" width="1680" height="26" fill="#0A0807"/>
+  <line x1="0" y1="26" x2="1680" y2="26" stroke="rgba(217,119,87,0.30)" stroke-width="1"/>
+  <circle cx="26" cy="13" r="3" class="live-dot">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="1.6s" repeatCount="indefinite"/>
+  </circle>
+  <text x="38"   y="17" class="hud">SYS · ANTIGRAVITY-BLOG</text>
+  <text x="220"  y="17" class="hud">NODE 0x2B · ACTIVE</text>
+  <text x="1660" y="17" class="hud-muted" text-anchor="end">UPTIME 04:12:08</text>
+
+  <rect x="0" y="694" width="1680" height="26" fill="#0A0807"/>
+  <line x1="0" y1="694" x2="1680" y2="694" stroke="rgba(217,119,87,0.30)" stroke-width="1"/>
+  <text x="20"   y="711" class="hud">● LINK · STABLE</text>
+  <text x="180"  y="711" class="hud">BUF 1024K</text>
+  <text x="290"  y="711" class="hud">V1.9.0</text>
+  <text x="1450" y="711" class="hud-muted" text-anchor="end">208.140.MAINFRAME.DOTUSMANALI</text>
+  <text x="1660" y="711" class="hud-muted" text-anchor="end">12:08:20 UTC</text>
+
+  <text x="120" y="155" class="ascii" xml:space="preserve">
+    <tspan x="120" dy="0"> █████╗ ███╗   ██╗████████╗██╗ ██████╗ ██████╗  █████╗ ██╗   ██╗██╗████████╗██╗   ██╗</tspan>
+    <tspan x="120" dy="26">██╔══██╗████╗  ██║╚══██╔══╝██║██╔════╝ ██╔══██╗██╔══██╗██║   ██║██║╚══██╔══╝╚██╗ ██╔╝</tspan>
+    <tspan x="120" dy="26">███████║██╔██╗ ██║   ██║   ██║██║  ███╗██████╔╝███████║██║   ██║██║   ██║    ╚████╔╝ </tspan>
+    <tspan x="120" dy="26">██╔══██║██║╚██╗██║   ██║   ██║██║   ██║██╔══██╗██╔══██║╚██╗ ██╔╝██║   ██║     ╚██╔╝  </tspan>
+    <tspan x="120" dy="26">██║  ██║██║ ╚████║   ██║   ██║╚██████╔╝██║  ██║██║  ██║ ╚████╔╝ ██║   ██║      ██║   </tspan>
+    <tspan x="120" dy="26">╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝   ╚═╝      ╚═╝   </tspan>
+  </text>
+
+  <text x="120" y="335" class="ascii" xml:space="preserve">
+    <tspan x="120" dy="0">██████╗ ██╗      ██████╗  ██████╗ </tspan>
+    <tspan x="120" dy="26">██╔══██╗██║     ██╔═══██╗██╔════╝ </tspan>
+    <tspan x="120" dy="26">██████╔╝██║     ██║   ██║██║  ███╗</tspan>
+    <tspan x="120" dy="26">██╔══██╗██║     ██║   ██║██║   ██║</tspan>
+    <tspan x="120" dy="26">██████╔╝███████╗╚██████╔╝╚██████╔╝</tspan>
+    <tspan x="120" dy="26">╚═════╝ ╚══════╝ ╚═════╝  ╚═════╝ </tspan>
+  </text>
+
+  <rect x="120" y="500" width="540" height="3" rx="2" class="accent-line">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="4.2s" repeatCount="indefinite"/>
+  </rect>
+
+  <text x="120" y="545" class="tagline">The Content Operating System</text>
+  <text x="120" y="580" class="sysline">
+    <tspan class="sysline-accent">›</tspan> RUNTIME READY · 30 SUB-SKILLS · 5 AGENTS · 5-GATE CONTRACT
+  </text>
+
+  <g transform="translate(1660, 100)">
+    <text class="cmd-head" text-anchor="end" y="0">
+      <tspan class="cmd-head-b">┌─ </tspan>COMMAND PALETTE<tspan class="cmd-head-b"> ─┐</tspan>
+    </text>
+
+    <rect x="-470" y="30" width="490" height="44" rx="4"
+          fill="rgba(217,119,87,0.12)" stroke="rgba(217,119,87,0.28)" stroke-width="1">
+      <animate attributeName="y"
+               values="30;80;130;180;230;280;330;-200"
+               keyTimes="0;0.123;0.246;0.368;0.491;0.614;0.737;0.860"
+               dur="5.7s"
+               calcMode="discrete"
+               repeatCount="indefinite"/>
+    </rect>
+
+    <text class="cmd" text-anchor="end" y="55">
+      <tspan class="cmd-slash">/</tspan>blog write
+      <animate attributeName="fill" values="#F5F4ED;#F5F4ED;#5A5750" keyTimes="0;0.122;0.125" dur="5.7s" begin="0s"   repeatCount="indefinite"/>
+    </text>
+    <text class="cmd" text-anchor="end" y="105">
+      <tspan class="cmd-slash">/</tspan>blog audit
+      <animate attributeName="fill" values="#F5F4ED;#F5F4ED;#5A5750" keyTimes="0;0.122;0.125" dur="5.7s" begin="0.7s" repeatCount="indefinite"/>
+    </text>
+    <text class="cmd" text-anchor="end" y="155">
+      <tspan class="cmd-slash">/</tspan>blog cluster
+      <animate attributeName="fill" values="#F5F4ED;#F5F4ED;#5A5750" keyTimes="0;0.122;0.125" dur="5.7s" begin="1.4s" repeatCount="indefinite"/>
+    </text>
+    <text class="cmd" text-anchor="end" y="205">
+      <tspan class="cmd-slash">/</tspan>blog geo
+      <animate attributeName="fill" values="#F5F4ED;#F5F4ED;#5A5750" keyTimes="0;0.122;0.125" dur="5.7s" begin="2.1s" repeatCount="indefinite"/>
+    </text>
+    <text class="cmd" text-anchor="end" y="255">
+      <tspan class="cmd-slash">/</tspan>blog multilingual
+      <animate attributeName="fill" values="#F5F4ED;#F5F4ED;#5A5750" keyTimes="0;0.122;0.125" dur="5.7s" begin="2.8s" repeatCount="indefinite"/>
+    </text>
+    <text class="cmd" text-anchor="end" y="305">
+      <tspan class="cmd-slash">/</tspan>blog flow <tspan class="cmd-arg">&lt;stage&gt;</tspan>
+      <animate attributeName="fill" values="#F5F4ED;#F5F4ED;#5A5750" keyTimes="0;0.122;0.125" dur="5.7s" begin="3.5s" repeatCount="indefinite"/>
+    </text>
+    <text class="cmd" text-anchor="end" y="355">
+      <tspan class="cmd-slash">/</tspan>blog brand
+      <animate attributeName="fill" values="#F5F4ED;#F5F4ED;#5A5750" keyTimes="0;0.122;0.125" dur="5.7s" begin="4.2s" repeatCount="indefinite"/>
+    </text>
+
+    <rect x="-3" y="35" width="18" height="26" fill="#F5F4ED">
+      <animate attributeName="y"
+               values="35;85;135;185;235;285;335;-100"
+               keyTimes="0;0.123;0.246;0.368;0.491;0.614;0.737;0.860"
+               dur="5.7s"
+               calcMode="discrete"
+               repeatCount="indefinite"/>
+      <animate attributeName="opacity"
+               values="1;1;0;1;1;0;1"
+               keyTimes="0;0.2;0.25;0.3;0.7;0.75;1"
+               dur="0.7s"
+               repeatCount="indefinite"/>
+    </rect>
   </g>
+</g>
 
-  <!-- Glowing Abstract Waves (Antigravity waves) -->
-  <path d="M 750,450 Q 820,280 950,220 T 1150,50" fill="none" stroke="url(#accent-cyan)" stroke-width="8" opacity="0.4" filter="url(#glow-cyan)" />
-  <path d="M 800,450 Q 900,250 1020,180 T 1200,20" fill="none" stroke="url(#accent-green)" stroke-width="4" opacity="0.6" filter="url(#glow-green)" />
-  <path d="M 720,450 Q 860,320 900,150 T 1100,-50" fill="none" stroke="url(#accent-purple)" stroke-width="3" opacity="0.3" />
-
-  <!-- Decorative Orbiting Spheres -->
-  <circle cx="950" cy="220" r="30" fill="url(#bg-grad)" stroke="url(#accent-cyan)" stroke-width="3" filter="url(#glow-cyan)" opacity="0.9" />
-  <circle cx="1020" cy="180" r="12" fill="url(#accent-green)" opacity="0.8" />
-  <circle cx="900" cy="150" r="8" fill="url(#accent-purple)" opacity="0.6" />
-  <circle cx="1120" cy="80" r="18" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4" />
-
-  <!-- Left Side Content -->
-  
-  <!-- Platform Badge -->
-  <rect x="80" y="65" width="180" height="28" rx="14" fill="#0f172a" stroke="#1e293b" stroke-width="1.5" />
-  <circle cx="95" cy="79" r="5" fill="#00f2fe" filter="url(#glow-cyan)" />
-  <text x="110" y="83" class="badge-text">GEMINI &amp; ANTIGRAVITY</text>
-
-  <!-- Title -->
-  <text x="80" y="150" class="title">ANTIGRAVITY SEO</text>
-  <!-- Subtitle -->
-  <text x="80" y="190" class="subtitle">Autonomous SEO Audit &amp; Optimization Skill Suite</text>
-
-  <!-- Stats Grid -->
-  <g transform="translate(80, 240)">
-    <!-- Stat 1 -->
-    <rect x="0" y="0" width="160" height="90" rx="12" fill="#0b1329" stroke="#1e293b" stroke-width="1" />
-    <path d="M 0,12 L 0,78" stroke="url(#accent-cyan)" stroke-width="4" stroke-linecap="round" />
-    <text x="20" y="45" class="stat-val">26</text>
-    <text x="20" y="68" class="stat-lbl">Workflows</text>
-
-    <!-- Stat 2 -->
-    <rect x="180" y="0" width="160" height="90" rx="12" fill="#0b1329" stroke="#1e293b" stroke-width="1" />
-    <path d="M 180,12 L 180,78" stroke="url(#accent-green)" stroke-width="4" stroke-linecap="round" />
-    <text x="200" y="45" class="stat-val">24</text>
-    <text x="200" y="68" class="stat-lbl">AI Agents</text>
-
-    <!-- Stat 3 -->
-    <rect x="360" y="0" width="160" height="90" rx="12" fill="#0b1329" stroke="#1e293b" stroke-width="1" />
-    <path d="M 360,12 L 360,78" stroke="url(#accent-purple)" stroke-width="4" stroke-linecap="round" />
-    <text x="380" y="45" class="stat-val">1</text>
-    <text x="380" y="68" class="stat-lbl">Orchestrator</text>
-  </g>
-
-  <!-- Feature list (Bullet points) -->
-  <g transform="translate(80, 365)">
-    <!-- Feature 1 -->
-    <circle cx="10" cy="-5" r="3" fill="#38ef7d" />
-    <text x="22" y="0" class="feature-text">Technical SEO &amp; Schema</text>
-
-    <!-- Feature 2 -->
-    <circle cx="230" cy="-5" r="3" fill="#38ef7d" />
-    <text x="242" y="0" class="feature-text">GEO / AI Citation Readiness</text>
-
-    <!-- Feature 3 -->
-    <circle cx="490" cy="-5" r="3" fill="#38ef7d" />
-    <text x="502" y="0" class="feature-text">Local Maps &amp; E-Commerce</text>
-
-    <!-- Feature 4 -->
-    <circle cx="730" cy="-5" r="3" fill="#38ef7d" />
-    <text x="742" y="0" class="feature-text">Drift &amp; Speed Monitoring</text>
-  </g>
 </svg>
