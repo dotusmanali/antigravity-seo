@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Antigravity SEO"
+version: "1.9.6+antigravity.1"
+date-released: "2026-04-27"
+authors:
+  - name: "Muhammad Usman Ali"
+url: "https://github.com/dotusmanali/antigravity-seo"
+license: "MIT"
+keywords:
+  - seo
+  - antigravity
+  - antigravity-cli
+  - seo-audit
+  - python
+references:
+  - type: software
+    title: "antigravity-seo"
+    authors:
+      - name: "Muhammad Usman Ali"
+    repository-code: "https://github.com/dotusmanali/antigravity-seo"

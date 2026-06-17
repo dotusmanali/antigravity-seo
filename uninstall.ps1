@@ -1,0 +1,84 @@
+# Antigravity SEO Uninstaller for Windows
+
+$ErrorActionPreference = "Stop"
+
+$antigravityRoot = if ($env:GEMINI_HOME) { $env:GEMINI_HOME } else { Join-Path $HOME ".gemini" }
+$skillsRoot = Join-Path $antigravityRoot "skills"
+$agentDir = Join-Path $antigravityRoot "agents"
+
+$skillNames = @(
+    "seo",
+    "seo-audit",
+    "seo-backlinks",
+    "seo-cluster",
+    "seo-competitor-pages",
+    "seo-content",
+    "seo-dataforseo",
+    "seo-drift",
+    "seo-ecommerce",
+    "seo-flow",
+    "seo-firecrawl",
+    "seo-geo",
+    "seo-google",
+    "seo-hreflang",
+    "seo-image-gen",
+    "seo-images",
+    "seo-local",
+    "seo-maps",
+    "seo-page",
+    "seo-performance",
+    "seo-plan",
+    "seo-programmatic",
+    "seo-schema",
+    "seo-sitemap",
+    "seo-sxo",
+    "seo-technical",
+    "seo-visual"
+)
+
+$agentNames = @(
+    "seo-backlinks",
+    "seo-cluster",
+    "seo-competitor-pages",
+    "seo-content",
+    "seo-dataforseo",
+    "seo-drift",
+    "seo-ecommerce",
+    "seo-flow",
+    "seo-firecrawl",
+    "seo-geo",
+    "seo-google",
+    "seo-hreflang",
+    "seo-image-gen",
+    "seo-images",
+    "seo-local",
+    "seo-maps",
+    "seo-performance",
+    "seo-plan",
+    "seo-programmatic",
+    "seo-schema",
+    "seo-sitemap",
+    "seo-sxo",
+    "seo-technical",
+    "seo-visual"
+)
+
+Write-Host "[INFO] Uninstalling Antigravity SEO..." -ForegroundColor Yellow
+
+foreach ($skill in $skillNames) {
+    $path = Join-Path $skillsRoot $skill
+    if (Test-Path $path) {
+        Remove-Item -Path $path -Recurse -Force
+    }
+}
+
+foreach ($agent in $agentNames) {
+    foreach ($extension in @(".toml", ".md")) {
+        $path = Join-Path $agentDir "$agent$extension"
+        if (Test-Path $path) {
+            Remove-Item -Path $path -Force
+        }
+    }
+}
+
+Write-Host "[OK] Antigravity SEO uninstalled." -ForegroundColor Green

@@ -1,0 +1,60 @@
+{
+  "name": "antigravity-seo",
+  "version": "1.9.6+antigravity.5",
+  "description": "Comprehensive SEO analysis skill suite for Antigravity. Includes technical SEO, content quality, schema markup, image optimization, sitemap architecture, GEO/AEO, backlinks, local SEO, maps intelligence, semantic clustering, SXO, drift monitoring, e-commerce SEO, Google APIs, and deterministic reporting workflows.",
+  "author": {
+    "name": "Muhammad Usman Ali",
+    "url": "https://github.com/dotusmanali"
+  },
+  "homepage": "https://github.com/dotusmanali/antigravity-seo",
+  "repository": "https://github.com/dotusmanali/antigravity-seo",
+  "license": "MIT",
+  "keywords": [
+    "antigravity",
+    "antigravity-cli",
+    "antigravity-skills",
+    "seo",
+    "ai-seo",
+    "technical-seo",
+    "content-quality",
+    "schema-markup",
+    "core-web-vitals",
+    "local-seo",
+    "generative-engine-optimization",
+    "ai-search",
+    "sitemap",
+    "image-optimization",
+    "google-search-console",
+    "dataforseo",
+    "mcp",
+    "pagespeed",
+    "crux",
+    "backlinks",
+    "semantic-clustering",
+    "sxo",
+    "drift-monitoring",
+    "ecommerce-seo",
+    "automation",
+    "marketing-automation"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json",
+  "interface": {
+    "displayName": "Antigravity SEO",
+    "shortDescription": "Run SEO audits, schema checks, GEO analysis, and reports in Antigravity.",
+    "longDescription": "Antigravity SEO is a local SEO analysis suite with 1 orchestrator, 26 specialist workflows, 24 Antigravity agent profiles, shared cache artifacts, optional API integrations, and deterministic headless wrappers for repeatable audits and reports.",
+    "developerName": "Muhammad Usman Ali",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/dotusmanali/antigravity-seo",
+    "defaultPrompt": [
+      "Audit this website for SEO issues.",
+      "Check schema and Core Web Vitals for this URL.",
+      "Build an SEO action plan for this business."
+    ],
+    "brandColor": "#16A34A"
+  }
+}

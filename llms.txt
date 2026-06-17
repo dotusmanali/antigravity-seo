@@ -1,0 +1,47 @@
+# Antigravity SEO
+
+> Antigravity-first SEO skill suite for technical SEO, content quality, schema, Core Web Vitals, GEO/AEO, local SEO, maps, backlinks, DataForSEO, Google APIs, Firecrawl, and Gemini image workflows.
+
+## Project
+
+- Repository: https://github.com/dotusmanali/antigravity-seo
+- License: MIT
+- Current version: 1.9.6+antigravity.1
+- Canonical skill entrypoint: skills/seo/SKILL.md
+- Plugin manifest: .gemini-plugin/plugin.json
+- Credits: CREDITS.md
+- Initial Antigravity SEO conversion: https://github.com/avalonreset
+
+## Install
+
+- Private preview: `gh repo clone Muhammad Usman Ali/antigravity-seo && cd antigravity-seo && bash install.sh`
+- Future public install: `curl -fsSL https://raw.githubusercontent.com/Muhammad Usman Ali/antigravity-seo/main/install.sh | bash`
+- Windows private preview: `gh repo clone Muhammad Usman Ali/antigravity-seo; cd antigravity-seo; powershell -ExecutionPolicy Bypass -File .\install.ps1`
+
+## Core Docs
+
+- README.md
+- CREDITS.md
+- docs/COMMANDS.md
+- docs/INSTALLATION.md
+- docs/ARCHITECTURE.md
+- docs/MCP-INTEGRATION.md
+- docs/API-READINESS-MATRIX.md
+- docs/DEMO-RUNBOOK.md
+- docs/TROUBLESHOOTING.md
+
+## Runtime Notes
+
+- New config path: `~/.config/antigravity-seo/`
+- New cache path: `~/.cache/antigravity-seo/`
+- Project cache path: `.seo-cache/`
+- Credentials must stay outside the repository.
+- Optional live-data providers return setup-required states when credentials or MCP servers are unavailable.
+
+## Common Prompts
+
+- `Do a full SEO check on https://example.com following best practices.`
+- `/seo audit https://example.com`
+- `/seo technical https://example.com`
+- `/seo schema https://example.com`
+- `/seo dataforseo serp "seo tools"`
