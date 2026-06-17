@@ -47,7 +47,7 @@ from typing import Any
 try:
     import textstat
     HAS_TEXTSTAT = True
-except ImportError:
+except (ImportError, RuntimeError):
     HAS_TEXTSTAT = False
 
 try:
