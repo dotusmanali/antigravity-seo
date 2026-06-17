@@ -44,52 +44,27 @@ An autonomous, native SEO analysis skill suite built for **Antigravity (Gemini C
 
 ## Install
 
-### One-Line Install
+To install the Antigravity SEO extension, you can clone the repository and ask your Antigravity / Gemini CLI or IDE coding assistant to set it up automatically.
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/dotusmanali/antigravity-seo/v1.9.6-antigravity.5/install.sh | bash
-```
-
-Windows:
-
-```powershell
-irm https://raw.githubusercontent.com/dotusmanali/antigravity-seo/v1.9.6-antigravity.5/install.ps1 | iex
-```
-
-### Review Before Installing
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/dotusmanali/antigravity-seo.git
 cd antigravity-seo
-bash install.sh
 ```
 
-Windows:
+### 2. Run Auto-Installation Prompt
 
-```powershell
-git clone https://github.com/dotusmanali/antigravity-seo.git
-cd antigravity-seo
-powershell -ExecutionPolicy Bypass -File .\install.ps1
+Copy and paste the following prompt directly into your **Antigravity / Gemini CLI** session or IDE coding assistant:
+
+```text
+Please configure and link this Antigravity SEO extension to my environment:
+1. Detect my Gemini CLI config directory (usually ~/.gemini/ on Linux/macOS or %USERPROFILE%\.gemini\ on Windows).
+2. Configure this local repository in ~/.gemini/extensions/antigravity-seo/.gemini-extension-install.json by setting "source" to the absolute path of this cloned folder, and "type" to "link".
+3. Enable "antigravity-seo" inside ~/.gemini/extensions/extension-enablement.json by mapping it with overrides allowed for my user directory.
+4. Set up a Python virtual environment at skills/seo/.venv, and install all dependencies from requirements.txt.
+5. Run the test suite using pytest to confirm that all 56 port contracts and validation checks pass successfully.
 ```
-
-The installer copies the skill suite into `~/.gemini/skills/`, installs TOML agents into `~/.gemini/agents/`, creates a Python virtualenv at `~/.gemini/skills/seo/.venv/`, installs core runtime dependencies, attempts optional capability groups, and verifies the runtime.
-
-### Installer Overrides
-
-```bash
-GEMINI_HOME=~/.gemini \
-GEMINI_SEO_REPO=https://github.com/dotusmanali/antigravity-seo \
-GEMINI_SEO_REF=v1.9.6-antigravity.5 \
-bash install.sh
-```
-
-| Variable | Purpose |
-|---|---|
-| `GEMINI_HOME` | Alternate Antigravity home. Defaults to `~/.gemini`. |
-| `GEMINI_SEO_REPO` | Git URL, fork URL, or local repository path. |
-| `GEMINI_SEO_REF` | Branch, tag, or commit. Defaults to `v1.9.6-antigravity.5`. |
-| `GEMINI_SEO_SKIP_PLAYWRIGHT_BROWSER=1` | Skip Chromium install for visual/PDF workflows. |
-| `GEMINI_SEO_PLAYWRIGHT_WITH_DEPS=1` | Ask Playwright to install system dependencies where supported. |
 
 ## Quick Start
 
