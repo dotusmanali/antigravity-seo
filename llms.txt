@@ -1,0 +1,33 @@
+# Antigravity SEO & Blog Suite
+
+Antigravity SEO & Blog Suite is a production-grade, AI-native SEO analysis and blog creation ecosystem built for the Antigravity platform. It features 2 orchestrators, 57 specialist workflows, 29 AI agent profiles, and deterministic Python runners.
+
+## Core Capabilities
+- **Full SEO Auditing**: Automated technical, content (E-E-A-T), schema, performance, and GEO analysis.
+- **Async Pipeline**: High-performance crawling and analysis using aiohttp.
+- **Market Intelligence**: Integrated keyword research (Google Ads) and competitor gap analysis.
+- **Blog Orchestration**: Complete lifecycle management from research to brief to publication.
+- **GEO (AI Search)**: Optimization for Generative Engine Results and AI-driven discovery.
+- **Drift Monitoring**: Tracking and alerting on SEO-critical changes between deployments.
+
+## Architecture
+- **Skills**: Modular specialist workflows defined in `skills/`.
+- **Agents**: Specialized AI profiles defined in `agents/` using TOML.
+- **Scripts**: Deterministic Python backend engines for data collection and analysis.
+- **Orchestrators**: Central routing logic in `skills/seo/SKILL.md` and `skills/blog/SKILL.md`.
+
+## Command Reference
+- `/seo:auto`: Infer intent and run optimal workflow.
+- `/seo:audit`: Full domain or page SEO audit.
+- `/seo:research`: Market, keyword, and competitor research.
+- `/seo:create`: Blog post generation and optimization.
+- `/seo:track`: Rank tracking and performance reporting.
+
+## Documentation
+- [README.md](README.md): Installation and quick start guide.
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): Deep dive into system design.
+- [docs/COMMANDS.md](docs/COMMANDS.md): Detailed command and argument reference.
+
+## Links
+- Repository: https://github.com/dotusmanali/antigravity-seo
+- Contact: dotusmanali (dotusmanali@gmail.com)

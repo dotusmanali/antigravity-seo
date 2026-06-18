@@ -1,0 +1,24 @@
+# Antigravity SEO & Blog Suite - Python Dependencies
+# Merged unified dependencies for core, visual, reports, google APIs, and OCR workflows.
+
+beautifulsoup4>=4.14.3,<5.0.0
+requests>=2.32.4,<3.0.0
+lxml>=6.1.0,<7.0.0
+defusedxml>=0.7.1,<1.0.0
+Pillow>=12.2.0,<13.0.0
+urllib3>=2.6.3,<3.0.0
+validators>=0.35.0,<1.0.0
+Markdown>=3.7,<4.0
+textstat>=0.7.3,<1.0.0
+google-api-python-client>=2.194.0,<3.0.0
+google-auth>=2.20.0,<3.0.0
+google-auth-oauthlib>=1.3.1,<2.0.0
+google-auth-httplib2>=0.3.1,<1.0.0
+google-analytics-data>=0.18.0,<1.0.0
+rapidocr-onnxruntime>=1.2.3,<2.0.0
+matplotlib>=3.10.9,<4.0.0
+weasyprint>=68.1,<70.0
+openpyxl>=3.1.5,<4.0.0
+playwright>=1.56.0,<2.0.0
+aiohttp>=3.11.11,<4.0.0
+python-dotenv>=1.0.1,<2.0.0

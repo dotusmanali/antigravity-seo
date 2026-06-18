@@ -1,0 +1,77 @@
+{
+  "name": "antigravity-seo",
+  "version": "2.0.0",
+  "description": "Complete SEO analysis & Blog creation ecosystem for Antigravity. 2 orchestrators, 57 specialist workflows, 29 agent profiles, shared cache, deterministic runners, and MCP integrations.",
+  "author": {
+    "name": "dotusmanali",
+    "url": "https://github.com/dotusmanali"
+  },
+  "homepage": "https://github.com/dotusmanali/antigravity-seo",
+  "repository": "https://github.com/dotusmanali/antigravity-seo",
+  "license": "MIT",
+  "keywords": [
+    "ai-search",
+    "ai-seo",
+    "antigravity",
+    "antigravity-cli",
+    "antigravity-skills",
+    "automation",
+    "backlinks",
+    "blog",
+    "blog-creation",
+    "blog-writer",
+    "content-authority",
+    "content-marketing",
+    "content-quality",
+    "core-web-vitals",
+    "crux",
+    "dataforseo",
+    "drift-monitoring",
+    "ecommerce-seo",
+    "generative-engine-optimization",
+    "geo",
+    "aeo",
+    "google-search-console",
+    "image-optimization",
+    "local-seo",
+    "marketing-automation",
+    "mcp",
+    "pagespeed",
+    "schema-markup",
+    "semantic-clustering",
+    "seo",
+    "sitemap",
+    "sxo",
+    "technical-seo",
+    "topic-clusters",
+    "multilingual"
+  ],
+  "skills": "./skills/",
+  "agents": "./agents/",
+  "hooks": "./hooks.json",
+  "rules": "./rules/",
+  "commands": [
+    "./commands/"
+  ],
+  "commandNamespace": "seo",
+  "interface": {
+    "displayName": "Antigravity SEO & Blog Suite",
+    "shortDescription": "Run SEO audits, content quality analysis, and automated blog creation.",
+    "longDescription": "Antigravity SEO & Blog Suite combines a professional local SEO analysis engine with a complete blog creation and content authority operating system. Includes 2 orchestrators, 57 specialist workflows, 29 agent profiles, 3 global rules, shared cache artifacts, MCP integrations, and deterministic headless runners.",
+    "developerName": "dotusmanali",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/dotusmanali/antigravity-seo",
+    "defaultPrompt": [
+      "Audit this website for SEO issues.",
+      "Check schema and Core Web Vitals for this URL.",
+      "Build an SEO action plan for this business.",
+      "Write a structured blog post about local SEO trends.",
+      "Optimize my blog content for search engines."
+    ],
+    "brandColor": "#16A34A"
+  }
+}

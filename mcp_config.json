@@ -1,0 +1,61 @@
+{
+  "mcpServers": {
+    "dataforseo": {
+      "command": "npx",
+      "args": ["-y", "dataforseo-mcp-server"],
+      "env": {
+        "DATAFORSEO_LOGIN": "${DATAFORSEO_LOGIN}",
+        "DATAFORSEO_PASSWORD": "${DATAFORSEO_PASSWORD}"
+      }
+    },
+    "firecrawl": {
+      "command": "npx",
+      "args": ["-y", "firecrawl-mcp-server"],
+      "env": {
+        "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
+      }
+    },
+    "nanobanana": {
+      "command": "npx",
+      "args": ["-y", "nanobanana-mcp"],
+      "env": {
+        "GOOGLE_AI_API_KEY": "${GOOGLE_AI_API_KEY}"
+      }
+    },
+    "antigravity-llm": {
+      "env": {
+        "LLM_PROVIDER": "${LLM_PROVIDER}",
+        "LLM_API_KEY": "${LLM_API_KEY}",
+        "LLM_MODEL": "${LLM_MODEL}"
+      }
+    },
+    "google-ads": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "google-ads-mcp"
+      ]
+    },
+    "google-keyword-planner": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "google-keyword-planner-mcp"
+      ],
+      "env": {
+        "GOOGLE_ADS_DEVELOPER_TOKEN": "${GOOGLE_ADS_DEVELOPER_TOKEN}",
+        "GOOGLE_ADS_CLIENT_ID": "${GOOGLE_ADS_CLIENT_ID}",
+        "GOOGLE_ADS_CLIENT_SECRET": "${GOOGLE_ADS_CLIENT_SECRET}",
+        "GOOGLE_ADS_REFRESH_TOKEN": "${GOOGLE_ADS_REFRESH_TOKEN}",
+        "GOOGLE_ADS_LOGIN_CUSTOMER_ID": "${GOOGLE_ADS_LOGIN_CUSTOMER_ID}"
+      }
+    },
+    "google-trends": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "google-trends-mcp-server"
+      ]
+    }
+  }
+}
