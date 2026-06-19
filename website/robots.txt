@@ -1,0 +1,9 @@
+# ==============================================================================
+# Robots.txt for Antigravity SEO & Blog Suite
+# ==============================================================================
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://antigravity-seo.vercel.app/sitemap.xml

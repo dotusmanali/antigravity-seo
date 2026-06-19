@@ -1,0 +1,54 @@
+# Antigravity SEO & Blog Suite
+
+A production-grade, state-of-the-art SEO analysis and automated blog creation ecosystem built natively for the **Antigravity** developer platform. It coordinates deep-dive search intelligence with automated editorial pipelines, combining deterministic local Python runners with live APIs.
+
+---
+
+## 1. Commands Reference
+
+All commands are prefixed with the `/seo:` namespace to keep prompts simple and structured.
+
+| Command | Arguments | Description / Workflow |
+|---|---|---|
+| `/seo:run` | `<goal> [--max-steps <int>] [--force-fresh]` | **Master Supervisor**: Plans execution roadmaps, checks cache TTL limits, coordinates SEO/Blog routers, and enforces safety boundaries. |
+| `/seo:auto` | `<goal> [--deep]` | **Intent Inference**: Runs local routing checks on the prompt and triggers standard workflow families automatically. |
+| `/seo:research`| `<domain-or-topic> [--competitors <domains>] [--map]` | **Market Intel**: Pulls autocomplete suggestions, search trends, keyword ideas, search console metrics, and competitor ratings. |
+| `/seo:audit` | `<target> [--full] [--tech\|--visibility\|--authority]` | **Deep Audit**: Analyzes Core Web Vitals, Schema.org health, E-E-A-T score, and generative engine optimization (GEO) layout rankings. |
+| `/seo:create` | `<keyword> [--brief\|--series\|--refresh\|--meta\|--schema]` | **Content Engine**: Generates briefs, drafts posts, embeds HTML schemas, and outputs responsive dark-mode data visualizations. |
+| `/seo:track` | `<url> [--alert\|--report\|--remember]` | **Metrics Tracking**: Monitors SERP shifts, alerts on performance baseline drifts, and updates campaign memories. |
+
+---
+
+## 2. Core Subsystems
+
+### Master Supervisor Orchestrator
+The top-level planning supervisor. It parses multi-step user prompts, builds execution roadmaps, validates caching constraints, evaluates intermediate outputs using verification models, and securely loops execution up to 5 times.
+
+### SEO Engine
+Executes technical, speed, accessibility, map pack, and competitive position scans. Includes 29 sub-skills and 27 expert agent profiles.
+
+### Blog & Content Engine
+Produces clusters, blueprints, briefs, drafts, multilingual translations, audio narrations (TTS), and responsive inline SVG graphics. Includes 30 sub-skills and 5 custom editorial agents.
+
+---
+
+## 3. Environment Configurations
+
+Copy `.env.example` to `.env` to configure your API integrations:
+
+*   `GOOGLE_AI_API_KEY`: Core Gemini API key for analysis and narration.
+*   `GOOGLE_ADS_DEVELOPER_TOKEN`: Developer token from your Ads MCC Account.
+*   `GOOGLE_ADS_CLIENT_ID` / `GOOGLE_ADS_CLIENT_SECRET`: OAuth2 client keys.
+*   `GOOGLE_ADS_REFRESH_TOKEN`: Google Ads authorization refresh token.
+*   `DATAFORSEO_USERNAME` / `DATAFORSEO_PASSWORD`: For live search metrics.
+*   `FIRECRAWL_API_KEY`: Automated webpage crawler token.
+*   `PAGESPEED_API_KEY`: PageSpeed Insights key.
+*   `UNSPLASH_ACCESS_KEY` / `PEXELS_API_KEY`: For royalty-free images.
+
+---
+
+## 4. Design Guidelines (Visual Charts Engine)
+*   **Colors**: Primary (`#f97316`), Secondary (`#38bdf8`), Tertiary (`#a78bfa`), Indicator (`#22c55e`).
+*   **Backgrounds**: Always transparent.
+*   **Text & Grids**: Uses `currentColor` to match reader dark/light modes.
+*   **Access**: Employs `role="img"`, title tags, and descriptions.
