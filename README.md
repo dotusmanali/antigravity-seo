@@ -1,513 +1,186 @@
 <p align="center">
-  <img src="screenshots/cover-image.svg" alt="Antigravity SEO: SEO audit skill suite for Antigravity" width="100%">
+  <img src="screenshots/cover-image.svg" alt="Antigravity SEO & Blog Suite Banner" width="100%">
 </p>
 
-# Antigravity SEO & Blog Suite — Complete SEO & Content Ecosystem for Antigravity
+# Antigravity SEO & Blog Suite — Complete SEO & Content Ecosystem
 
-A complete, production-grade SEO analysis and blog creation ecosystem built for **Antigravity** (IDE, CLI, 2.0). Features 2 orchestrators, 60 specialist workflows, 32 AI agent profiles, 3 global rules, MCP integrations, shared cache artifacts, and deterministic headless runners.
+A production-grade, state-of-the-art SEO analysis and automated blog creation ecosystem built natively for the **Antigravity** developer platform. 
 
-[![GitHub license](https://img.shields.io/github/license/dotusmanali/antigravity-seo?style=flat-square&color=blue)](LICENSE)
-[![GitHub release](https://img.shields.io/github/v/release/dotusmanali/antigravity-seo?style=flat-square&color=orange)](https://github.com/dotusmanali/antigravity-seo/releases)
-[![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square)](pyproject.toml)
-[![SEO Workflows](https://img.shields.io/badge/Workflows-60-emerald?style=flat-square)](docs/COMMANDS.md)
-[![AI Agents](https://img.shields.io/badge/AI_Agents-32-blueviolet?style=flat-square)](agents/)
+This suite bridges deep-dive search intelligence with automated editorial workflows. It combines determinism (via local Python runners) with real-time scraping and official APIs (via MCP) to deliver expert-level audits, keyword research, core visual charts, and publish-ready content.
 
-## Contents
+[![Workflows Count](https://img.shields.io/badge/Workflows-60-emerald?style=flat-square)](skills/)
+[![AI Agents Count](https://img.shields.io/badge/AI_Agents-32-blueviolet?style=flat-square)](agents/)
+[![Python Version](https://img.shields.io/badge/Python-3.11%2B-blue?style=flat-square)](pyproject.toml)
+[![License](https://img.shields.io/badge/License-MIT-orange?style=flat-square)](LICENSE)
 
-- [Status](#status)
-- [Install](#install)
-- [Quick Start](#quick-start)
-- [Visual Overview](#visual-overview)
-- [Commands](#commands)
-- [Features](#features)
-- [Extensions](#extensions)
-- [Headless/API Usage](#headlessapi-usage)
-- [Architecture](#architecture)
-- [Verification](#verification)
-- [Requirements](#requirements)
-- [Credentials And Cache](#credentials-and-cache)
-- [Security](#security)
-- [Uninstall](#uninstall)
-- [Contributing](#contributing)
-- [Related Projects](#related-projects)
-- [Credits](#credits)
-- [Attribution](#attribution)
+---
 
-## Status
+## 1. System Architecture & Subsystems
 
-- Repository visibility: public.
-- Current release: [`v1.9.6-antigravity.5`](https://github.com/dotusmanali/antigravity-seo/releases/tag/v1.9.6-antigravity.5).
-- Installer default ref: `v1.9.6-antigravity.5`.
-- Latest local validation: 52 tests passing, full installed smoke suite passing, demo readiness passing.
-- Runtime credentials stay outside the repo under Antigravity/local config paths.
-- Discovery topics: `antigravity`, `antigravity-cli`, `antigravity-skills`, `seo`, `ai-seo`, `ai-search`, `technical-seo`, `generative-engine-optimization`, `core-web-vitals`, `schema-markup`, `local-seo`, `ecommerce-seo`, `content-strategy`, `google-search-console`, `dataforseo`, `mcp`, `python`, `automation`, `marketing-automation`, `open-source`.
+The suite is modular, dividing complexity across three key architectural layers:
 
-## Install
+```mermaid
+flowchart TB
+    User["User Prompt / Commands"] --> Supervisor["Master Supervisor (/seo:run)"]
+    
+    subgraph Orchestration Layers
+        Supervisor -->|Plan & Bridge| SEO["SEO Orchestrator<br/>(skills/seo/SKILL.md)"]
+        Supervisor -->|Plan & Bridge| Blog["Blog Orchestrator<br/>(skills/blog/SKILL.md)"]
+    end
 
-### Option 1: Via Antigravity CLI
+    subgraph Specialist Engines
+        SEO -->|Audits & Technical| SEOSkills["29 Specialist SEO Workflows<br/>(27 AI Agents & Python Runners)"]
+        Blog -->|Outlines & Copywriting| BlogSkills["30 Content Sub-skills<br/>(5 AI Agents & SVG Charts)"]
+    end
 
+    subgraph Data & Tool Layer
+        SEOSkills -->|Read/Write Cache| Cache[".seo-cache/ Shared Memory"]
+        BlogSkills -->|Read Cache| Cache
+        SEOSkills -->|Query| MCPServers["mcp_config.json<br/>(Trends, Google Ads, DataForSEO, Firecrawl)"]
+    end
+    
+    classDef main fill:#0c111a,stroke:#00d7e6,color:#f5fbff,stroke-width:1.5px;
+    classDef supervisor fill:#1b1525,stroke:#a78bfa,color:#fff7ed,stroke-width:2px;
+    classDef cache fill:#0c2220,stroke:#22c55e,color:#ecfeff,stroke-width:1.5px;
+    class User main;
+    class SEO,Blog,SEOSkills,BlogSkills,MCPServers main;
+    class Supervisor supervisor;
+    class Cache cache;
+```
+
+### The Three Core Engines:
+1. **SEO Router (`skills/seo/SKILL.md`)**:
+   * Coordinates 29 sub-skills and 27 agent profiles. Performs single-page or site-wide analysis including Core Web Vitals (INP-focused), schema verification, authority audits, competitor gap analyses, and local map-pack checks.
+2. **Blog Router (`skills/blog/SKILL.md`)**:
+   * Coordinates 30 sub-skills, 12 content templates, and 5 specialized agents. Handles editorial calendars, outlines, EEAT assessments, translation/localization, and article drafts.
+3. **Master Supervisor (`/seo:run`)**:
+   * The top-level coordinator that bridges the SEO and Blog repositories. It reads multi-step prompts (e.g., *"Find trends and write a draft"*), plans the roadmap, verifies cache validation (Fix 3), evaluates outputs via a lightweight check (Fix 2), and executes loop logic safely (cap: 5 iterations).
+
+---
+
+## 2. Command Namespace Reference
+
+All capabilities are exposed via the `/seo:` namespace to keep prompts simple and structured:
+
+| Command | Arguments | Purpose / Workflow |
+|---|---|---|
+| `/seo:run` | `<complex-goal> [--max-steps <int>] [--force-fresh]` | **Master Supervisor**: Bridges SEO and Blog systems. Generates an Execution Roadmap, runs structural reviews, checks cache TTL, and halts on safety limits. |
+| `/seo:auto` | `<goal> [--deep]` | **Intent Inference**: Runs local routing to check standard SEO scenario families (Audit, Research, Write, Track) and triggers standard gates. |
+| `/seo:research`| `<domain-or-topic> [--competitors <domains>] [--map]` | **Market Intel**: Identifies search queries, competitor ratings, SERP intent, content gaps, and semantic architectures. |
+| `/seo:audit` | `<target> [--full] [--tech\|--visibility\|--authority]` | **Deep Audit**: Analyzes Core Web Vitals, Schema.org health, E-E-A-T score, and AI visibility (GEO) rankings. |
+| `/seo:create` | `<keyword> [--brief\|--series\|--refresh\|--meta\|--schema]` | **Content Engine**: Generates briefs, writes posts, applies HTML schema structures, and designs meta tags. |
+| `/seo:track` | `<url> [--alert\|--report\|--remember]` | **Metrics Tracking**: Monitors SERP shifts, alerts on performance baseline drifts, and updates campaign memories. |
+
+---
+
+## 3. Visual Charts Engine (`blog-chart`)
+
+The suite features a built-in SVG Data Visualization Engine (`skills/blog-chart`) that automatically designs dark-mode-compatible inline charts for blog posts and audit reports.
+
+### Supported Visualization Types:
+* **Horizontal Bar Chart**: Percentage changes and direct factor comparisons.
+* **Grouped Bar Chart**: Before/after comparisons and dual-series metrics.
+* **Donut Chart**: Share of voice, market share, and parts-of-a-whole.
+* **Line Chart**: Keyword popularity and search trend lines over time.
+* **Lollipop Chart**: Ranked opportunities and correlation values.
+* **Area Chart**: Cumulative data distributions and ranges.
+* **Radar Chart**: Multi-dimensional parameter scores (e.g. Core E-E-A-T categories).
+
+### Strict Styling Constraints:
+To ensure accessibility and contrast compatibility across both dark and light reader modes, the visual charts conform to the following strict rules:
+1. **Background**: Always transparent (no root SVG fill).
+2. **Colors**: Approved color palette tokens only:
+   * 🟠 Primary: `#f97316` (Orange)
+   * 🔵 Secondary: `#38bdf8` (Sky Blue)
+   * 🟣 Tertiary: `#a78bfa` (Purple)
+   * 🟢 Indicator: `#22c55e` (Green)
+3. **Accessibility**: All charts output accessible markup using `role="img"`, descriptive `aria-label`, `<title>`, and `<desc>` fields, and attribute sources at the bottom center.
+4. **CurrentColor**: Text, grid lines, and labels use `currentColor` to dynamically adapt to the user's theme.
+
+---
+
+## 4. Shared Data Cache (`.seo-cache/`)
+
+The `.seo-cache/` folder functions as the local memory of your assistant, avoiding repetitive paid API requests and token wastage.
+
+### Key Naming Convention:
+All cached files are structured as follows:
+```text
+{domain-or-topic-slug}__{task-type}__{YYYY-MM-DD}.json
+```
+* *Example*: `forexguru-pk__dr__2026-06-19.json` (Stores competitor Domain Rating)
+* *Example*: `forex-trading-signals__trends__2026-06-19.json` (Stores Google Trends)
+
+### 7-Day TTL Staleness Rule:
+* Before running any keyword or authority fetch, the Supervisor checks if a cache key exists for the target.
+* If a file exists and is **less than 7 days old**, the Supervisor reuses the cached file to save API quotas and token volume.
+* You can bypass this check and force a fresh run by passing the `--force-fresh` flag (e.g. `/seo:run "..." --force-fresh`).
+
+---
+
+## 5. MCP Configurations and Setup
+
+To enrich audits with real-world live data, configure your extensions inside `mcp_config.json`. The following 7 servers are natively supported:
+
+| MCP Server Name | Source / Command | Purpose | Required Env Variables |
+|---|---|---|---|
+| `google-trends` | `python` (Local Clone: `GoogleTrendsMCP`) | Free historical and regional search trend metrics without API keys. | *None* |
+| `google-ads-research` | `npx -y google-ads-mcp` | Fast Google autocomplete suggest phrases and lightweight trend indexes. | *None* |
+| `google-keyword-planner` | `npx -y google-keyword-planner-mcp` | Search volume, advertiser competition levels, and average CPC. | `GOOGLE_ADS_DEVELOPER_TOKEN`, `GOOGLE_ADS_CLIENT_ID`, `GOOGLE_ADS_CLIENT_SECRET`, `GOOGLE_ADS_REFRESH_TOKEN`, `GOOGLE_ADS_LOGIN_CUSTOMER_ID` |
+| `dataforseo` | `npx -y dataforseo-mcp-server` | Professional live SERPs, organic difficulty scores, and merchant product indexes. | `DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD` |
+| `firecrawl` | `npx -y firecrawl-mcp-server` | Site-wide JS-rendered crawling and automated XML sitemap mappings. | `FIRECRAWL_API_KEY` |
+| `nanobanana` | `npx -y nanobanana-mcp` | Capturing above-the-fold visual layouts, mobile testing, and screenshot analysis. | `GOOGLE_AI_API_KEY` |
+
+### Setting Up Local Google Trends MCP:
 ```bash
+# 1. Clone the repository
+git clone https://github.com/cryptoken/GoogleTrendsMCP.git G:\skills\GoogleTrendsMCP
+
+# 2. Create virtual environment
+cd G:\skills\GoogleTrendsMCP
+python -m venv venv
+
+# 3. Install requirements
+venv\Scripts\pip install -r requirements.txt
+```
+The workspace `mcp_config.json` is pre-configured to execute this server via your local clone.
+
+---
+
+## 6. Premium Reports & PDFs
+
+When executing audits or visual analysis, you can generate client-ready PDF deliverables containing Lighthouse graphs, Core Web Vitals gauges, and visual checklist charts:
+
+1. Execute the audit:
+   ```bash
+   /seo:audit https://example.com --full
+   ```
+2. Request a premium document:
+   ```text
+   Generate a client-ready report for this run
+   ```
+   *The system invokes `scripts/google_report.py` and creates a styled HTML baseline report, compiles the visual SVG charts, and compiles the final PDF deliverable under the `pdf/` or `output/` directory.*
+
+---
+
+## 7. Development & Verification
+
+### Initializing the Plugin:
+To link and register this suite inside the Antigravity ecosystem:
+```bash
+# Register the local directory as an active plugin
 agy plugin install /path/to/antigravity-seo
 ```
 
-### Option 2: Manual Copy
-
+### Validation Check:
+Always run the validation tool after editing skills or agent profiles to verify schema compliance:
 ```bash
-# 1. Clone the repository
-git clone https://github.com/dotusmanali/antigravity-seo.git
-
-# 2. Link as plugin
-# Linux/macOS
-ln -s /path/to/antigravity-seo ~/.gemini/config/plugins/antigravity-seo
-
-# Windows (PowerShell as Admin)
-New-Item -ItemType Junction -Path "$env:USERPROFILE\.gemini\config\plugins\antigravity-seo" -Target "C:\path\to\antigravity-seo"
+agy plugin validate /path/to/antigravity-seo
 ```
 
-### 3. Install Python dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-Restart Antigravity. All 60 skills and 32 agents are auto-discovered.
-
-## Quick Start
-
-Restart Antigravity after installation. Then ask naturally; a `/seo` command is not required:
-
-```text
-Do a full SEO check on https://example.com following best practices.
-```
-
-```text
-Review this page for schema, Core Web Vitals, image SEO, and AI search readiness.
-```
-
-```text
-Create an SEO strategy and content roadmap for a local dental clinic.
-```
-
-Command-style prompts also work:
-
-```text
-/seo audit https://example.com
-/seo technical https://example.com
-/seo schema https://example.com
-/seo dataforseo serp "best seo tools"
-```
-
-## Visual Overview
-
-Antigravity SEO is designed as a Antigravity-first routing layer: the user can ask naturally, the orchestrator selects the right specialist workflow, and deterministic runners write repeatable artifacts instead of relying on invisible chat-only output.
-
-```mermaid
-%%{init: {"theme":"base","themeVariables":{"background":"#05080d","primaryColor":"#07131c","primaryTextColor":"#f5fbff","primaryBorderColor":"#00d7e6","lineColor":"#00d7e6","secondaryColor":"#06222a","tertiaryColor":"#ff9f1c","edgeLabelBackground":"#05080d","fontFamily":"Inter, ui-sans-serif, system-ui, sans-serif"}}}%%
-flowchart LR
-  user["User prompt<br/>natural language or /seo"] --> orchestrator["skills/seo/SKILL.md<br/>main orchestrator"]
-  orchestrator --> cache[".seo-cache<br/>shared evidence"]
-  orchestrator --> skills["29 specialist<br/>SEO workflows"]
-  skills --> agents["27 TOML agents<br/>parallel analysis slices"]
-  skills --> scripts["scripts/<br/>deterministic runners"]
-  scripts --> output["output/<br/>Markdown, JSON, HTML, PDF"]
-  cache --> skills
-  class user,orchestrator accent
-  class cache,scripts data
-  class output output
-  classDef default fill:#07131c,stroke:#00d7e6,color:#f5fbff,stroke-width:1.4px
-  classDef accent fill:#10151a,stroke:#ff9f1c,color:#fff7ed,stroke-width:2px
-  classDef data fill:#06222a,stroke:#21e6c1,color:#ecfeff,stroke-width:1.5px
-  classDef output fill:#15101a,stroke:#ff9f1c,color:#fff7ed,stroke-width:1.8px
-```
-
-## Commands
-
-The ecosystem features five one-shot mode commands under the **`/seo:`** namespace to orchestrate specific SEO and GEO intents:
-
-| Command | Arguments | Purpose |
-|---|---|---|
-| `/seo:auto` | `<goal> [--deep]` | Infer SEO/GEO intent and run the smallest useful workflow. Add `--deep` for exhaustive, phase-gated execution. |
-| `/seo:research` | `<domain-or-keyword>` | Analyze keyword demand, SERP intent, competitors, content gaps, and entity maps. |
-| `/seo:create` | `<keyword> [--brief\|--series\|--refresh\|--publish\|--meta\|--schema]` | Generate content briefs, write/refresh posts, create series, and export CMS-neutral publish packages. |
-| `/seo:audit` | `<target> [--full] [--tech\|--visibility\|--authority]` | Evaluate page SEO + CORE-EEAT quality, technical health (`--tech`), AI citation readiness (`--visibility`), and domain trust (`--authority`). |
-| `/seo:track` | `<url> [--alert\|--report\|--remember]` | Track rank positions, trigger alerts (`--alert`), generate reports (`--report`), and update campaign memory (`--remember`). |
-
-For individual workflow details and instructions, check the files directly under the `skills/` directory.
-
-## Features
-
-### Full Audit Pipeline
-
-- Detects site/business type.
-- Runs technical, content, schema, sitemap, performance, visual, GEO, image, and on-page analysis.
-- Adds conditional specialists for local, maps, Google APIs, backlinks, clusters, SXO, drift, and e-commerce.
-- Writes markdown reports, JSON summaries, cache artifacts, and optional premium HTML/PDF output.
-
-```mermaid
-%%{init: {"theme":"base","themeVariables":{"background":"#05080d","primaryColor":"#07131c","primaryTextColor":"#f5fbff","primaryBorderColor":"#00d7e6","lineColor":"#00d7e6","secondaryColor":"#06222a","tertiaryColor":"#ff9f1c","edgeLabelBackground":"#05080d","fontFamily":"Inter, ui-sans-serif, system-ui, sans-serif"}}}%%
-flowchart TD
-  request["Audit request"] --> detect["Detect site type<br/>business model and context"]
-  detect --> core["Core audit specialists"]
-  core --> technical["Technical"]
-  core --> content["Content"]
-  core --> schema["Schema"]
-  core --> sitemap["Sitemap"]
-  core --> geo["GEO / AI search"]
-  core --> images["Images"]
-  core --> performance["Performance"]
-  core --> visual["Visual"]
-  detect --> conditional["Conditional specialists"]
-  conditional --> local["Local / Maps"]
-  conditional --> backlinks["Backlinks"]
-  conditional --> google["Google APIs"]
-  conditional --> ecommerce["E-commerce"]
-  conditional --> drift["Drift"]
-  technical --> report["Unified SEO report"]
-  content --> report
-  schema --> report
-  sitemap --> report
-  geo --> report
-  images --> report
-  performance --> report
-  visual --> report
-  local --> report
-  backlinks --> report
-  google --> report
-  ecommerce --> report
-  drift --> report
-  report --> artifacts["SUMMARY.json<br/>FULL-AUDIT-REPORT.md<br/>ACTION-PLAN.md<br/>optional HTML/PDF"]
-  class request,detect accent
-  class core,conditional data
-  class report,artifacts output
-  classDef default fill:#07131c,stroke:#00d7e6,color:#f5fbff,stroke-width:1.4px
-  classDef accent fill:#10151a,stroke:#ff9f1c,color:#fff7ed,stroke-width:2px
-  classDef data fill:#06222a,stroke:#21e6c1,color:#ecfeff,stroke-width:1.5px
-  classDef output fill:#15101a,stroke:#ff9f1c,color:#fff7ed,stroke-width:1.8px
-```
-
-### Technical SEO
-
-- Robots.txt, sitemap discovery, canonical checks, indexability, URL hygiene.
-- Security headers, JavaScript rendering risk, mobile basics, IndexNow.
-- Core Web Vitals with INP, LCP, CLS, FCP, TTFB, and PageSpeed/CrUX integrations where available.
-
-### Content, GEO, And SXO
-
-- E-E-A-T and helpful content signals.
-- AI citation readiness, answer-first formatting, entity clarity, llms.txt support.
-- Search experience analysis: page type, user stories, persona fit, intent mismatch.
-
-### Structured Data
-
-- JSON-LD extraction and validation.
-- Schema recommendations for Organization, LocalBusiness, Product, Article, FAQ, Breadcrumb, and related types.
-- Generated schema artifacts for downstream use.
-
-### Local, Maps, And E-Commerce SEO
-
-- Local SEO signals, GBP readiness, citations, reviews, NAP consistency.
-- Maps intelligence via free sources and DataForSEO when configured.
-- Product schema, marketplace endpoints, merchant visibility, and e-commerce template checks.
-
-### Drift Monitoring
-
-- Capture SEO-critical baselines.
-- Compare deployments or page changes.
-- Track title, meta, headings, canonical, schema, robots, links, and content deltas.
-
-```mermaid
-%%{init: {"theme":"base","themeVariables":{"background":"#05080d","primaryColor":"#07131c","primaryTextColor":"#f5fbff","primaryBorderColor":"#00d7e6","lineColor":"#00d7e6","actorBkg":"#07131c","actorBorder":"#00d7e6","actorTextColor":"#f5fbff","actorLineColor":"#21e6c1","signalColor":"#21e6c1","signalTextColor":"#f5fbff","labelBoxBkgColor":"#10151a","labelTextColor":"#f5fbff","noteBkgColor":"#10151a","noteTextColor":"#f5fbff","activationBkgColor":"#06222a","activationBorderColor":"#ff9f1c","fontFamily":"Inter, ui-sans-serif, system-ui, sans-serif"}}}%%
-sequenceDiagram
-  participant Before as Baseline
-  participant Runner as Drift runner
-  participant After as Current page
-  participant Cache as .seo-cache
-  participant Report as Drift report
-  Before->>Runner: Capture titles, metas, canonicals, schema, headings
-  Runner->>Cache: Store baseline snapshot
-  After->>Runner: Re-check current SEO signals
-  Cache->>Runner: Load prior snapshot
-  Runner->>Report: Write changed, missing, and regressed signals
-```
-
-### Deterministic Runners
-
-- `scripts/run_skill_workflow.py` standardizes output for every user-invokable workflow.
-- `scripts/run_api_smoke_suite.py` runs all supported workflows in one pass.
-- Setup-required workflows return structured fallback results instead of pretending live data exists.
-
-## Extensions
-
-| Extension | Skill | Setup | Notes |
-|---|---|---|---|
-| DataForSEO | `seo-dataforseo`, `seo-maps`, `seo-ecommerce`, `seo-cluster` | Set `DATAFORSEO_LOGIN`/`DATAFORSEO_PASSWORD` env vars (configured in `mcp_config.json`) | Live SERP, keyword, backlinks, on-page, content, business data, AI visibility |
-| Google APIs | `seo-google`, `seo-performance` | `python scripts/google_auth.py --setup` | PageSpeed, CrUX, GSC, URL Inspection, Indexing API, GA4 |
-| Firecrawl | `seo-firecrawl` | Set `FIRECRAWL_API_KEY` env var (configured in `mcp_config.json`) | JS-rendered crawl, scrape, site map |
-| Banana / Gemini | `seo-image-gen` | Set `GOOGLE_AI_API_KEY` env var (configured in `mcp_config.json`) | AI image generation through `nanobanana-mcp` |
-
-Optional integrations enrich the same workflow surface. If credentials or MCP servers are missing, wrappers return `setup_required` or `mcp_configured` states with no fabricated live data.
-
-```mermaid
-%%{init: {"theme":"base","themeVariables":{"background":"#05080d","primaryColor":"#07131c","primaryTextColor":"#f5fbff","primaryBorderColor":"#00d7e6","lineColor":"#00d7e6","secondaryColor":"#06222a","tertiaryColor":"#ff9f1c","edgeLabelBackground":"#05080d","fontFamily":"Inter, ui-sans-serif, system-ui, sans-serif"}}}%%
-flowchart LR
-  antigravity["Antigravity SEO workflows"] --> local["Local evidence<br/>HTML, robots, sitemaps, screenshots"]
-  antigravity --> dfs["DataForSEO MCP<br/>SERP, keywords, backlinks, maps"]
-  antigravity --> google["Google APIs<br/>GSC, PageSpeed, CrUX, GA4"]
-  antigravity --> firecrawl["Firecrawl MCP<br/>JS crawl and site maps"]
-  antigravity --> banana["Gemini / nanobanana<br/>SEO image assets"]
-  local --> artifacts["Reports and .seo-cache"]
-  dfs --> artifacts
-  google --> artifacts
-  firecrawl --> artifacts
-  banana --> artifacts
-  class antigravity accent
-  class local,dfs,google,firecrawl,banana data
-  class artifacts output
-  classDef default fill:#07131c,stroke:#00d7e6,color:#f5fbff,stroke-width:1.4px
-  classDef accent fill:#10151a,stroke:#ff9f1c,color:#fff7ed,stroke-width:2px
-  classDef data fill:#06222a,stroke:#21e6c1,color:#ecfeff,stroke-width:1.5px
-  classDef output fill:#15101a,stroke:#ff9f1c,color:#fff7ed,stroke-width:1.8px
-```
-
-Demo readiness:
-
-```bash
-python scripts/demo_readiness.py --target https://example.com --live-apis --workflows --json
-```
-
-One low-depth DataForSEO proof:
-
-```bash
-python scripts/demo_readiness.py --target https://example.com --live-apis --live-serp --serp-keyword "seo tools" --json
-```
-
-## Headless/API Usage
-
-Run a single workflow:
-
-```bash
-python scripts/run_skill_workflow.py --skill seo-technical https://example.com --json
-python scripts/run_skill_workflow.py --skill seo-google https://example.com --json
-python scripts/run_skill_workflow.py --skill seo-dataforseo https://example.com --json
-```
-
-Run the full smoke suite:
-
-```bash
-python scripts/run_api_smoke_suite.py https://example.com --json
-```
-
-Verify environment:
-
-```bash
-python scripts/verify_environment.py --target https://example.com --json
-```
-
-Bootstrap a clean runtime:
-
-```bash
-python scripts/bootstrap_environment.py --venv .venv --json
-```
-
-Artifacts are written to `output/`. Shared project cache is written to `.seo-cache/`. Both are ignored by git.
-
-```mermaid
-%%{init: {"theme":"base","themeVariables":{"background":"#05080d","primaryColor":"#07131c","primaryTextColor":"#f5fbff","primaryBorderColor":"#00d7e6","lineColor":"#00d7e6","secondaryColor":"#06222a","tertiaryColor":"#ff9f1c","edgeLabelBackground":"#05080d","fontFamily":"Inter, ui-sans-serif, system-ui, sans-serif"}}}%%
-flowchart LR
-  cli["run_skill_workflow.py<br/>single workflow"] --> json["JSON result"]
-  cli --> markdown["Markdown report"]
-  cli --> cacheWrite[".seo-cache update"]
-  suite["run_api_smoke_suite.py<br/>all workflows"] --> json
-  suite --> outputRoot["output/api-smoke-*"]
-  verify["verify_environment.py"] --> readiness["ready / setup_required<br/>capability status"]
-  markdown --> outputRoot
-  json --> outputRoot
-  cacheWrite --> cache[".seo-cache"]
-  class cli,suite,verify accent
-  class cacheWrite,readiness data
-  class json,markdown,outputRoot,cache output
-  classDef default fill:#07131c,stroke:#00d7e6,color:#f5fbff,stroke-width:1.4px
-  classDef accent fill:#10151a,stroke:#ff9f1c,color:#fff7ed,stroke-width:2px
-  classDef data fill:#06222a,stroke:#21e6c1,color:#ecfeff,stroke-width:1.5px
-  classDef output fill:#15101a,stroke:#ff9f1c,color:#fff7ed,stroke-width:1.8px
-```
-
-## Architecture
-
-The repository separates Antigravity-facing instructions, deterministic runtime code, optional provider setup, and validation contracts. That keeps the skill system usable in chat, installable as a suite, and testable from CI/API workflows.
-
-```mermaid
-%%{init: {"theme":"base","themeVariables":{"background":"#05080d","primaryColor":"#07131c","primaryTextColor":"#f5fbff","primaryBorderColor":"#00d7e6","lineColor":"#00d7e6","secondaryColor":"#06222a","tertiaryColor":"#ff9f1c","edgeLabelBackground":"#05080d","fontFamily":"Inter, ui-sans-serif, system-ui, sans-serif"}}}%%
-flowchart TB
-  manifest["plugin.json"] --> skillsRoot["skills/"]
-  skillsRoot --> orchestrator["seo/SKILL.md<br/>routing and orchestration"]
-  skillsRoot --> specialists["seo-*/SKILL.md<br/>specialist workflows"]
-  agentsDir["agents/seo-*.toml"] --> specialists
-  scriptsDir["scripts/<br/>deterministic runners"] --> specialists
-  mcpConfig["mcp_config.json<br/>MCP servers"] --> specialists
-  references["skills/seo/references/<br/>thresholds and shared contracts"] --> specialists
-  specialists --> cacheDir[".seo-cache/<br/>cross-skill memory"]
-  specialists --> outputDir["output/<br/>reports and artifacts"]
-  rulesDir["rules/<br/>global behavioral rules"] --> manifest
-  testsDir["tests/<br/>contract and smoke coverage"] --> manifest
-  testsDir --> skillsRoot
-  testsDir --> scriptsDir
-  class manifest,orchestrator accent
-  class skillsRoot,specialists,agentsDir,scriptsDir,mcpConfig,references,testsDir,rulesDir data
-  class cacheDir,outputDir output
-  classDef default fill:#07131c,stroke:#00d7e6,color:#f5fbff,stroke-width:1.4px
-  classDef accent fill:#10151a,stroke:#ff9f1c,color:#fff7ed,stroke-width:2px
-  classDef data fill:#06222a,stroke:#21e6c1,color:#ecfeff,stroke-width:1.5px
-  classDef output fill:#15101a,stroke:#ff9f1c,color:#fff7ed,stroke-width:1.8px
-```
-
-```text
-antigravity-seo/
-├── plugin.json                       # Antigravity plugin manifest
-├── hooks.json                        # Event hooks (PostToolUse)
-├── mcp_config.json                   # MCP server definitions
-├── requirements.txt                  # Python dependencies
-├── pyproject.toml                    # Python project configuration
-├── skills/
-│   ├── seo/SKILL.md                  # SEO orchestrator
-│   ├── blog/SKILL.md                 # Blog orchestrator
-│   ├── references/                   # Shared contracts and frameworks
-│   ├── memory/                       # Local campaign memory and caches
-│   └── ...                           # 75+ flat auto-discovered skills
-├── agents/                           # 29 Antigravity TOML agent profiles
-├── rules/                            # Global behavioral rules
-├── scripts/                          # Python backend engines and connectors
-├── hooks/                            # Hook script files
-└── schema/                           # Schema.org templates
-```
-
-Design principles:
-
-- `skills/` is the source of truth.
-- `skills/seo/SKILL.md` routes natural-language SEO requests.
-- TOML agents are Antigravity-native and mirror specialist workflows.
-- Runtime credentials stay in `~/.config/antigravity-seo/` or `~/.gemini/settings.json`.
-- Legacy `antigravity-seo` config/cache paths are read only as migration fallback.
-
-More detail: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
-
-## Verification
-
-Local release gate:
-
-```bash
-python -m pytest tests/
-python -m compileall -q scripts hooks
-python scripts/run_api_smoke_suite.py https://example.com --json
-```
-
-PowerShell parse check:
-
-```powershell
-$files = Get-ChildItem -Recurse -Filter *.ps1
-foreach ($f in $files) {
-  $tokens = $null
-  $errs = $null
-  [System.Management.Automation.Language.Parser]::ParseFile($f.FullName, [ref]$tokens, [ref]$errs) > $null
-  if ($errs.Count) { $errs; exit 1 }
-}
-```
-
-Current GitHub CI runs:
-
-- dependency install
-- shell syntax checks
-- Python compile checks
-- `--help` checks for runner scripts
-- `python -m pytest tests/`
-- contract smoke checks for MCP-aware workflows
-
-## Requirements
-
-- Antigravity CLI with local skills support
-- Python 3.10+
-- Git
-- Optional: Playwright Chromium for screenshots and PDF reports
-- Optional: DataForSEO account for live SEO data
-- Optional: Google API credentials for PageSpeed/CrUX/GSC/GA4
-- Optional: Firecrawl API key for JS-rendered crawling
-- Optional: Google AI API key for Gemini/nanobanana image generation
-
-## Credentials And Cache
-
-To secure your API keys and credentials, Antigravity SEO separates secret keys (environment variables) from dynamic credentials (isolated files). **Never commit secret keys, credentials files, `.env` files, or OAuth tokens to git.**
-
-### 1. Environment Variables (Secret Keys)
-Use environment variables to inject API keys for MCP servers (defined in `mcp_config.json`). 
-
-- **`DATAFORSEO_LOGIN` & `DATAFORSEO_PASSWORD`**: Required for live SERP, keywords, backlinks, and local maps.
-- **`FIRECRAWL_API_KEY`**: Required for JS-rendered crawling and sitemap parsing.
-- **`GOOGLE_AI_API_KEY`**: Required for AI image generation (`nanobanana-mcp`).
-
-#### Windows (PowerShell - Run once to set globally)
-```powershell
-[System.Environment]::SetEnvironmentVariable('FIRECRAWL_API_KEY', 'your_key_here', 'User')
-[System.Environment]::SetEnvironmentVariable('DATAFORSEO_LOGIN', 'your_login_here', 'User')
-[System.Environment]::SetEnvironmentVariable('DATAFORSEO_PASSWORD', 'your_password_here', 'User')
-[System.Environment]::SetEnvironmentVariable('GOOGLE_AI_API_KEY', 'your_gemini_key_here', 'User')
-```
-
-#### macOS / Linux (Add to `~/.zshrc` or `~/.bashrc`)
-```bash
-export FIRECRAWL_API_KEY="your_key_here"
-export DATAFORSEO_LOGIN="your_login_here"
-export DATAFORSEO_PASSWORD="your_password_here"
-export GOOGLE_AI_API_KEY="your_gemini_key_here"
-```
-
-*Note: Restart your terminal/IDE after setting these variables so they are successfully loaded.*
-
-### 2. File-Based Credentials (Google APIs & Backlinks)
-JSON configs and authentication credentials must be stored under your global user profile directory to keep them completely isolated from your project repositories.
-
-- **Google Search Console, Indexing, GA4, PageSpeed**: Run the setup script to link your Google Cloud project and generate authentication tokens:
-  ```bash
-  python scripts/google_auth.py --setup
-  ```
-  This automatically saves files to `~/.config/antigravity-seo/google-api.json`.
-- **Backlinks API (DataForSEO client fallback)**: Create `~/.config/antigravity-seo/backlinks-api.json` manually with the following shape:
-  ```json
-  {
-    "login": "your_username",
-    "password": "your_password"
-  }
-  ```
-
-### 3. Caching & Directory Structure
-- **Global Config Folder**: `~/.config/antigravity-seo/` (stores API configs, auth tokens, and cost ledgers).
-- **Global Cache Folder**: `~/.cache/antigravity-seo/` (stores API responses and local cache artifacts).
-- **Workspace Cache**: `.seo-cache/` is created inside the active project root for cross-skill metrics sharing (already gitignored).
-- **Workspace Output**: `output/` is created inside the active project root for generated reports (already gitignored).
-
-## Security
-
-- URL-aware scripts block private, loopback, reserved, multicast, unspecified, and metadata hosts.
-- Credential setup writes outside tracked repo files.
-- Sensitive local settings are expected to use `0600` file permissions.
-- DataForSEO calls use cost guardrails through `scripts/dataforseo_costs.py`.
-- Report vulnerabilities through [SECURITY.md](SECURITY.md).
-
-## Uninstall
-
-Remove the plugin directory from your Antigravity config:
-
-```bash
-# Linux/macOS
-rm -rf ~/.gemini/config/plugins/antigravity-seo
-
-# Windows (PowerShell)
-Remove-Item -Recurse "$env:USERPROFILE\.gemini\config\plugins\antigravity-seo"
-```
-
-## Contributing
-
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for local setup and validation, [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for project standards, and [SECURITY.md](SECURITY.md) for vulnerability reporting. Agent-facing project context is also available in [llms.txt](llms.txt).
-
-## License
-
-Antigravity SEO is released under the [MIT License](LICENSE).
+### Authorship Rules (Workspace Compliance):
+All contributions, wrappers, configurations, and document edits MUST obey the Personal Ownership Mapping rules:
+* **Owner/Author**: `dotusmanali`
+* **Email**: `dotusmanali@gmail.com`
+* **Repository**: `https://github.com/dotusmanali/antigravity-seo`
+* **Command Namespace**: Explicitly scoped inside the `/seo:` namespace.
