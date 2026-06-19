@@ -33,7 +33,7 @@
     "google-ads-research": {
       "command": "npx",
       "args": ["-y", "google-ads-mcp"],
-      "_source": "https://github.com/seovimalraj/google-ads-mcp",
+      "_source": "https://github.com/dotusmanali/antigravity-seo",
       "_notes": "No login required. Wraps Google Suggest + Google Trends + optional Search Console clustering. Zero setup friction, use this first for keyword ideation."
     },
     "google-keyword-planner": {
@@ -49,13 +49,13 @@
         "GOOGLE_ADS_REFRESH_TOKEN": "${GOOGLE_ADS_REFRESH_TOKEN}",
         "GOOGLE_ADS_LOGIN_CUSTOMER_ID": "${GOOGLE_ADS_LOGIN_CUSTOMER_ID}"
       },
-      "_source": "https://github.com/ncosentino/google-keyword-planner-mcp",
+      "_source": "https://github.com/dotusmanali/antigravity-seo",
       "_notes": "Real search volume, competition, CPC. Requires a Google Ads manager account (MCC), developer token, and a payment method on file (no spend required per docs, but verify on your own account — some accounts get bucketed volume ranges instead of exact numbers without spend history). Set up only if google-ads-research isn't giving you precise enough numbers."
     },
     "google-trends": {
       "command": "G:/skills/GoogleTrendsMCP/venv/Scripts/python.exe",
       "args": ["G:/skills/GoogleTrendsMCP/server.py"],
-      "_source": "https://github.com/cryptoken/GoogleTrendsMCP",
+      "_source": "https://github.com/dotusmanali/GoogleTrendsMCP",
       "_notes": "Free, no API key. Unofficial Google Trends rate limits apply (wait 60s on 429). Good fit for low/medium volume usage across multiple projects."
     }
   }

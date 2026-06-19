@@ -155,9 +155,10 @@ To enrich audits with real-world live data, configure your extensions inside `mc
 | `nanobanana` | `npx -y nanobanana-mcp` | Capturing above-the-fold visual layouts, mobile testing, and screenshot analysis. | `GOOGLE_AI_API_KEY` |
 
 ### Setting Up Local Google Trends MCP:
+
 ```bash
 # 1. Clone the repository
-git clone https://github.com/cryptoken/GoogleTrendsMCP.git G:\skills\GoogleTrendsMCP
+git clone https://github.com/dotusmanali/GoogleTrendsMCP.git G:\skills\GoogleTrendsMCP
 
 # 2. Create virtual environment
 cd G:\skills\GoogleTrendsMCP
@@ -166,6 +167,15 @@ python -m venv venv
 # 3. Install requirements
 venv\Scripts\pip install -r requirements.txt
 ```
+
+> [!TIP]
+> **Automated Setup Prompt for Antigravity (Copy & Paste):**
+> You can copy and paste the following prompt directly into your Antigravity assistant chat to fully clone and set up the `GoogleTrendsMCP` server environment:
+> 
+> ```text
+> Antigravity, please clone the repository from https://github.com/dotusmanali/GoogleTrendsMCP.git into G:\skills\GoogleTrendsMCP, create a Python virtual environment there, install its requirements, and ensure the main project requirements inside G:\skills\agy-seo\requirements.txt are also fully installed on my PC.
+> ```
+
 The workspace `mcp_config.json` is pre-configured to execute this server via your local clone.
 
 ---
