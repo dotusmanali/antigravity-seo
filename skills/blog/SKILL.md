@@ -23,6 +23,22 @@ argument-hint: "[write|rewrite|analyze|brief|calendar|cannibalization|strategy|o
 
 # Blog: Content Engine for Rankings & AI Citations
 
+## Shared Data Cache
+
+**Step 0 -- Check shared data cache:**
+
+Before generating outlines, briefs, or articles, check `.seo-cache/` for cached keyword trends, competitor domain ratings, or site metadata.
+Reference: `.seo-cache/README.md` for schemas and conventions.
+
+Check these cache files when present:
+- `.seo-cache/site-meta.json` for general site crawl and target keywords
+- `.seo-cache/{topic-slug}__trends__*.json` for keyword trends and search popularity
+- `.seo-cache/{competitor-domain}__dr__*.json` for competitor authority scores
+
+- If found: parse and reuse cached details (log "Using cached [X] from [date]") to minimize token costs and bypass API limits.
+- If missing or stale (7+ days old): request fresh trends or domain ratings via `seo-trends` or `seo-keywords-free`.
+- If the user specifies `--force-fresh`: ignore cache and perform fresh lookups.
+
 Full-lifecycle blog management: strategy, briefs, outlines, writing, analysis,
 optimization, schema generation, repurposing, and editorial planning. Dual-optimized
 for Google's December 2025 Core Update and AI citation platforms (ChatGPT,

@@ -20,32 +20,55 @@ This suite bridges deep-dive search intelligence with automated editorial workfl
 The suite is modular, dividing complexity across three key architectural layers:
 
 ```mermaid
-flowchart TB
-    User["User Prompt / Commands"] --> Supervisor["Master Supervisor (/seo:run)"]
-    
-    subgraph Orchestration Layers
-        Supervisor -->|Plan & Bridge| SEO["SEO Orchestrator<br/>(skills/seo/SKILL.md)"]
-        Supervisor -->|Plan & Bridge| Blog["Blog Orchestrator<br/>(skills/blog/SKILL.md)"]
-    end
+%%{init: {"theme":"base","themeVariables":{"background":"#05080d","primaryColor":"#07131c","primaryTextColor":"#f5fbff","primaryBorderColor":"#00d7e6","lineColor":"#00d7e6","secondaryColor":"#06222a","tertiaryColor":"#ff9f1c","edgeLabelBackground":"#05080d","fontFamily":"Inter, ui-sans-serif, system-ui, sans-serif"}}}%%
+flowchart TD
+  User["User Prompt"] --> Run["Master Supervisor (/seo:run)"]
+  
+  subgraph Routing ["Unified Routing Layer"]
+    Run -->|"Coordinate Context"| Cache[".seo-cache/ (Shared Memory)"]
+    Run -->|"SEO Tasks"| SEO["SEO Orchestrator<br/>(skills/seo/SKILL.md)"]
+    Run -->|"Blog Tasks"| Blog["Blog Orchestrator<br/>(skills/blog/SKILL.md)"]
+  end
 
-    subgraph Specialist Engines
-        SEO -->|Audits & Technical| SEOSkills["29 Specialist SEO Workflows<br/>(27 AI Agents & Python Runners)"]
-        Blog -->|Outlines & Copywriting| BlogSkills["30 Content Sub-skills<br/>(5 AI Agents & SVG Charts)"]
-    end
+  subgraph SEOSubsystem ["SEO Subsystem (29 Sub-skills & 27 Agents)"]
+    SEO --> SEO_Audits["Audits & Technical:<br/>- seo-technical (Agent)<br/>- seo-audit (Skill)<br/>- seo-page (Skill)<br/>- seo-content (Agent)<br/>- seo-schema (Agent)<br/>- seo-images (Agent)<br/>- seo-performance (Agent)<br/>- seo-sitemap (Agent)<br/>- seo-visual (Agent)<br/>- seo-hreflang (Agent)"]
+    SEO --> SEO_Intel["Search & Keyword Intel:<br/>- keyword-research (Skill)<br/>- seo-trends (Agent/Skill)<br/>- seo-keywords-free (Agent/Skill)<br/>- seo-backlinks (Agent)<br/>- competitor-analysis (Skill)<br/>- content-gap-analysis (Skill)<br/>- serp-analysis (Skill)"]
+    SEO --> SEO_Advanced["Advanced & Local:<br/>- seo-geo (Agent)<br/>- seo-local (Agent)<br/>- seo-maps (Agent)<br/>- seo-programmatic (Agent)<br/>- seo-ecommerce (Agent)<br/>- seo-drift (Agent)"]
+  end
 
-    subgraph Data & Tool Layer
-        SEOSkills -->|Read/Write Cache| Cache[".seo-cache/ Shared Memory"]
-        BlogSkills -->|Read Cache| Cache
-        SEOSkills -->|Query| MCPServers["mcp_config.json<br/>(Trends, Google Ads, DataForSEO, Firecrawl)"]
-    end
+  subgraph BlogSubsystem ["Blog Subsystem (30 Sub-skills & 5 Agents)"]
+    Blog --> Blog_Plan["Planning & Strategy:<br/>- blog-strategy (Skill)<br/>- blog-calendar (Skill)<br/>- blog-cluster (Skill)<br/>- blog-discourse (Skill)"]
+    Blog --> Blog_Create["Content Creation:<br/>- blog-brief (Skill)<br/>- blog-outline (Skill)<br/>- blog-write (Agent/Skill)<br/>- blog-rewrite (Skill)"]
+    Blog --> Blog_Opt["Optimization & QA:<br/>- blog-seo-check (Skill)<br/>- blog-schema (Skill)<br/>- blog-factcheck (Skill)<br/>- blog-geo (Skill)"]
+    Blog --> Blog_Assets["Media & Localization:<br/>- blog-chart (SVG Visuals)<br/>- blog-image (Gemini Gen)<br/>- blog-audio (TTS Narration)<br/>- blog-multilingual (Skill)<br/>- blog-translate (Agent)<br/>- blog-localize (Skill)"]
+  end
+
+  subgraph ToolsLayer ["MCP Servers & Data Layer"]
+    SEO_Audits -.-> MCP_Gate["mcp_config.json"]
+    SEO_Intel -.-> MCP_Gate
+    SEO_Advanced -.-> MCP_Gate
+    Blog_Create -.-> MCP_Gate
+    Blog_Assets -.-> MCP_Gate
     
-    classDef main fill:#0c111a,stroke:#00d7e6,color:#f5fbff,stroke-width:1.5px;
-    classDef supervisor fill:#1b1525,stroke:#a78bfa,color:#fff7ed,stroke-width:2px;
-    classDef cache fill:#0c2220,stroke:#22c55e,color:#ecfeff,stroke-width:1.5px;
-    class User main;
-    class SEO,Blog,SEOSkills,BlogSkills,MCPServers main;
-    class Supervisor supervisor;
-    class Cache cache;
+    MCP_Gate --> MCP_Trends["google-trends (Pytrends)"]
+    MCP_Gate --> MCP_Ads["google-ads-research"]
+    MCP_Gate --> MCP_Planner["google-keyword-planner"]
+    MCP_Gate --> MCP_DFS["dataforseo"]
+    MCP_Gate --> MCP_Crawl["firecrawl"]
+    MCP_Gate --> MCP_Screen["nanobanana"]
+  end
+  
+  Cache -.->|"Read/Write Context"| SEOSubsystem
+  Cache -.->|"Read/Write Context"| BlogSubsystem
+
+  classDef default fill:#07131c,stroke:#00d7e6,color:#f5fbff,stroke-width:1.2px
+  classDef supervisor fill:#1b1525,stroke:#a78bfa,color:#fff7ed,stroke-width:2px
+  classDef cache fill:#0c2220,stroke:#22c55e,color:#ecfeff,stroke-width:1.5px
+  classDef mcp fill:#1a1a0c,stroke:#ff9f1c,color:#fff7ed,stroke-width:1.5px
+  
+  class Run supervisor
+  class Cache cache
+  class MCP_Trends,MCP_Ads,MCP_Planner,MCP_DFS,MCP_Crawl,MCP_Screen mcp
 ```
 
 ### The Three Core Engines:

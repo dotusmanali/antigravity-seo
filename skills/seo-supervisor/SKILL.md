@@ -16,21 +16,21 @@ metadata:
 # Master Supervisor Orchestrator
 
 ## Purpose
-Bridges the gap between the SEO analysis and Blog creation subsystems, coordinating complex multi-step user prompts that span both modules.
+Acts as the single unified routing layer and coordinator for all SEO and Blog workflows. It bridges the gap between the SEO analysis and Blog creation subsystems, allowing complex multi-step user prompts to run sequentially with cross-system data flow.
 
 ## When to use
 - Anytime the user prompt requires a mix of keyword research/SEO audit and content creation (e.g. "find trends and write a draft").
-- To plan and run multi-step sequential tasks interactively.
+- To plan and run multi-step sequential tasks interactively across both the SEO and Blog engines.
 
 ## Command Reference
 `/seo:run <goal> [--max-steps <int>] [--force-fresh]`
 
 ## Workflow
-1. **Plan Phase**: Parse the user's goal and generate an Execution Roadmap as a visible checklist before executing anything. It details the required skills, target agents, and MCPs/scripts. Wait for user confirmation unless `--yes` is set.
+1. **Plan Phase**: Parse the user's goal and generate an Execution Roadmap as a visible checklist before executing anything. It details the required skills, target agents, and MCPs/scripts spanning both the SEO and Blog subsystems. Wait for user confirmation unless `--yes` is set.
 2. **Cache Check (Fix 3)**: Before invoking any skill, check `.seo-cache/` for existing files matching `{domain-or-topic-slug}__{task-type}__{YYYY-MM-DD}.json`. If a cache file is less than 7 days old, ask the user if they want to reuse it, unless `--force-fresh` is set.
 3. **Execution Loop**:
-   - Invoke the target subagent or script for the current step.
-   - Cache results in `.seo-cache/`.
+   - Invoke the target subagent or script for the current step (calling either SEO or Blog specialist skills).
+   - Cache results in `.seo-cache/` to pass context between subsystems (e.g., SEO outputs $\rightarrow$ Blog writer inputs).
 4. **Lightweight Structured Review (Fix 2)**: 
    - Verify if the expected cache file was written to `.seo-cache/` and is valid. Do not re-read full prior outputs.
    - If a step fails, retry it up to a maximum of **2 retries** (3 total attempts).
