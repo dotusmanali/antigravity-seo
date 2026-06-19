@@ -163,6 +163,97 @@ To enrich audits with real-world live data, configure your extensions inside `mc
 | `dataforseo` | `npx -y dataforseo-mcp-server` | Professional live SERPs, organic difficulty scores, and merchant product indexes. | `DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD` |
 | `firecrawl` | `npx -y firecrawl-mcp-server` | Site-wide JS-rendered crawling and automated XML sitemap mappings. | `FIRECRAWL_API_KEY` |
 | `nanobanana` | `npx -y nanobanana-mcp` | Capturing above-the-fold visual layouts, mobile testing, and screenshot analysis. | `GOOGLE_AI_API_KEY` |
+### Detailed Setup Guide: Google Ads Keyword Planner MCP
+
+To use the professional keyword metrics engine (`google-keyword-planner` MCP server), you must obtain official API credentials from Google Ads and Google Cloud Platform (GCP).
+
+#### 1. Prerequisites
+*   **Google Ads Manager Account (MCC)**: Developer tokens are only issued to manager accounts, not regular accounts. If you don't have one, create it for free at [Google Ads Manager Accounts](https://ads.google.com/home/tools/manager-accounts).
+*   **Google Ads Developer Token**: In your manager account UI, navigate to Tools & Settings -> API Center (or go to [API Center](https://ads.google.com/aw/apicenter)) and copy your developer token.
+    > [!WARNING]
+    > **New Token Restrictions**: A new developer token starts in **Test** mode. It can only call the API against Google Ads test accounts. Calls to real production accounts return a `DEVELOPER_TOKEN_NOT_APPROVED` error.
+    > To use it with real accounts, apply for **Basic Access** by clicking "Apply for Basic Access" in the API Center and filling out the application form. Google typically reviews and approves requests within a few days. Basic Access is fully sufficient; you do not need Standard Access.
+*   **Billing Configured**: The Keyword Planner API requires an account with an active payment method. You do **not** need to run active ads or spend money, but you must have a payment method on file. This can be your manager account itself or one of its managed sub-accounts.
+*   **Account ID (`GOOGLE_ADS_LOGIN_CUSTOMER_ID`)**: If the target account you intend to query is a sub-account managed by your manager account, set `GOOGLE_ADS_LOGIN_CUSTOMER_ID` to your manager account ID (without dashes). If the OAuth user has direct access to the account without going through a manager account, you can omit this variable.
+
+#### 2. GCP Setup & Credentials
+1.  Go to the [Google Cloud Console](https://console.cloud.google.com).
+2.  Enable the **Google Ads API** on your project: [Enable Google Ads API](https://console.cloud.google.com/apis/library/googleads.googleapis.com).
+3.  Configure the **OAuth Consent Screen**:
+    *   Navigate to APIs & Services -> OAuth Consent Screen.
+    *   Select **External** type, fill in the app name, and add your support/developer email. Click save.
+    *   Add your own Google account as a **Test User**.
+    *   Leave the application publishing status in **Testing** mode.
+4.  Create the **OAuth2 Credentials**:
+    *   Go to APIs & Services -> Credentials.
+    *   Click `+ Create Credentials` -> **OAuth client ID**.
+    *   Select **Desktop app** as the Application type.
+    *   Name it and click **Create**.
+    *   Copy both the **Client ID** and **Client Secret**.
+
+#### 3. Obtain a Refresh Token
+Run this one-time script in your local environment. It starts a temporary local HTTP listener on port `9876` to automatically capture the OAuth authorization code returned by Google.
+
+##### PowerShell (Windows)
+```powershell
+$clientId = "YOUR_CLIENT_ID"
+$clientSecret = "YOUR_CLIENT_SECRET"
+$redirectUri = "http://localhost:9876"
+$authUrl = "https://accounts.google.com/o/oauth2/v2/auth?client_id=$clientId&redirect_uri=$([Uri]::EscapeDataString($redirectUri))&response_type=code&scope=$([Uri]::EscapeDataString('https://www.googleapis.com/auth/adwords'))&access_type=offline&prompt=consent"
+
+$listener = [System.Net.HttpListener]::new()
+$listener.Prefixes.Add("$redirectUri/")
+$listener.Start()
+
+Start-Process $authUrl
+
+$context = $listener.GetContext()
+$rawUrl = $context.Request.RawUrl
+$responseText = "<html><body><h2>Auth complete! You can close this tab.</h2></body></html>"
+$buffer = [System.Text.Encoding]::UTF8.GetBytes($responseText)
+$context.Response.ContentLength64 = $buffer.Length
+$context.Response.OutputStream.Write($buffer, 0, $buffer.Length)
+$context.Response.Close()
+$listener.Stop()
+
+$code = ($rawUrl -split "[?&]" | Where-Object { $_ -like "code=*" }) -replace "^code=", ""
+
+$body = "client_id=$clientId&client_secret=$clientSecret&code=$([Uri]::EscapeDataString($code))&grant_type=authorization_code&redirect_uri=$([Uri]::EscapeDataString($redirectUri))"
+$result = Invoke-RestMethod -Method Post -Uri "https://oauth2.googleapis.com/token" -Body $body -ContentType "application/x-www-form-urlencoded"
+Write-Host "Refresh token: $($result.refresh_token)"
+```
+
+##### Bash (Linux/macOS)
+```bash
+CLIENT_ID="YOUR_CLIENT_ID"
+CLIENT_SECRET="YOUR_CLIENT_SECRET"
+REDIRECT_URI="http://localhost:9876"
+
+# Open auth URL in browser
+open "https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fadwords&access_type=offline&prompt=consent"
+
+# Start a temporary HTTP server to catch the redirect
+CODE=$(python3 -c "
+import http.server, urllib.parse, sys
+class H(http.server.BaseHTTPRequestHandler):
+    def do_GET(self):
+        params = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
+        print(params['code'][0], end='')
+        self.send_response(200); self.end_headers()
+        self.wfile.write(b'Auth complete! Close this tab.')
+        sys.exit(0)
+    def log_message(self, *a): pass
+http.server.HTTPServer(('', 9876), H).handle_request()
+")
+
+# Exchange for tokens
+curl -s -X POST https://oauth2.googleapis.com/token \
+  -d "client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&code=${CODE}&grant_type=authorization_code&redirect_uri=${REDIRECT_URI}" \
+  | python3 -c "import sys,json; print(json.load(sys.stdin)['refresh_token'])"
+```
+
+Save the printed `refresh_token` value securely. Add it to your `.env` file along with the Client ID, Client Secret, and Developer Token to fully activate the Keyword Planner MCP.
+
 ---
 
 ## 6. Premium Reports & PDFs
