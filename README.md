@@ -15,6 +15,16 @@ This suite bridges deep-dive search intelligence with automated editorial workfl
 
 ---
 
+## Installation & Setup
+
+To install this plugin inside your Antigravity environment, copy and paste the following prompt in your assistant chat:
+
+```text
+Antigravity, please register and install this plugin directory into my local plugins directory (which is typically located at .gemini/config/plugins/ under my user home directory) and verify all dependencies in requirements.txt are installed.
+```
+
+---
+
 ## 1. System Architecture & Subsystems
 
 The suite is modular, dividing complexity across three key architectural layers:
@@ -153,25 +163,6 @@ To enrich audits with real-world live data, configure your extensions inside `mc
 | `dataforseo` | `npx -y dataforseo-mcp-server` | Professional live SERPs, organic difficulty scores, and merchant product indexes. | `DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD` |
 | `firecrawl` | `npx -y firecrawl-mcp-server` | Site-wide JS-rendered crawling and automated XML sitemap mappings. | `FIRECRAWL_API_KEY` |
 | `nanobanana` | `npx -y nanobanana-mcp` | Capturing above-the-fold visual layouts, mobile testing, and screenshot analysis. | `GOOGLE_AI_API_KEY` |
-
-### Setting Up Local Google Trends MCP:
-
-This plugin depends on a local clone of the Google Trends MCP server to fetch trend data. Follow these steps to configure it in your workspace:
-
-1. **Clone the Server Repository**: Clone the Google Trends MCP repository (forked under your username) into your workspace directory.
-2. **Create a Virtual Environment**: Initialize a Python virtual environment (`python -m venv venv`) within the cloned server directory.
-3. **Install Requirements**: Install the dependencies using the server's `requirements.txt` file.
-
-> [!TIP]
-> **Automated Setup Prompt for Antigravity (Copy & Paste):**
-> You can ask your Antigravity assistant to automate the entire installation for you. Copy and paste the following prompt in the chat:
-> 
-> ```text
-> Antigravity, please check the google-trends command path in mcp_config.json, clone the GoogleTrendsMCP repository to that target location, configure its Python virtual environment, install its dependencies, and ensure the main project requirements inside requirements.txt are fully installed in my environment.
-> ```
-
-The workspace `mcp_config.json` is pre-configured to execute this server via your local clone.
-
 ---
 
 ## 6. Premium Reports & PDFs
