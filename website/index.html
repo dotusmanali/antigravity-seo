@@ -43,18 +43,106 @@
 
   <!-- Hero Section -->
   <section class="hero container">
-    <h2>Complete SEO & Content Authority<br><mark>Operating System</mark></h2>
-    <p class="hero-description">
-      An enterprise-grade, state-of-the-art SEO audit and automated blog creation suite. Bridges deep-dive search intelligence (via local Python runners and official MCP APIs) with automated editorial workflows.
-    </p>
-    <div class="hero-actions">
-      <a href="#install" class="btn primary">
-        <span>Get Prompt Installer</span>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-      </a>
-      <a href="#setup" class="btn secondary">
-        <span>Setup Guides</span>
-      </a>
+    <div class="hero-grid">
+      <!-- Left Column: Copy & Actions -->
+      <div class="hero-text">
+        <h2>Complete SEO & Content Authority<br><mark>Operating System</mark></h2>
+        <p class="hero-description">
+          An enterprise-grade, state-of-the-art SEO audit and automated blog creation suite. Bridges deep-dive search intelligence (via local Python runners and official MCP APIs) with automated editorial workflows.
+        </p>
+        <div class="hero-actions">
+          <a href="#install" class="btn primary">
+            <span>Get Prompt Installer</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          </a>
+          <a href="#setup" class="btn secondary">
+            <span>Setup Guides</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Column: SEO Dashboard Mockups -->
+      <div class="hero-visual">
+        <!-- Core Web Vitals / Lighthouse Gauges -->
+        <div class="lighthouse-card">
+          <div class="lighthouse-header">
+            <span>Core Web Vitals &amp; Page Audits</span>
+            <span class="pulse-indicator">LIVE</span>
+          </div>
+          <div class="gauges-wrapper">
+            <div class="gauge-item">
+              <svg class="gauge-svg" viewBox="0 0 36 36">
+                <path class="gauge-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2.5" />
+                <path class="gauge-fill performance" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--accent-volt)" stroke-width="2.5" stroke-linecap="round" />
+                <text x="18" y="20.5" class="gauge-text" fill="var(--text-primary)" font-family="var(--font-display)" font-size="7" font-weight="800" text-anchor="middle">100</text>
+              </svg>
+              <span>Performance</span>
+            </div>
+            <div class="gauge-item">
+              <svg class="gauge-svg" viewBox="0 0 36 36">
+                <path class="gauge-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2.5" />
+                <path class="gauge-fill accessibility" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--accent-volt)" stroke-width="2.5" stroke-linecap="round" />
+                <text x="18" y="20.5" class="gauge-text" fill="var(--text-primary)" font-family="var(--font-display)" font-size="7" font-weight="800" text-anchor="middle">100</text>
+              </svg>
+              <span>Accessibility</span>
+            </div>
+            <div class="gauge-item">
+              <svg class="gauge-svg" viewBox="0 0 36 36">
+                <path class="gauge-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2.5" />
+                <path class="gauge-fill practices" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--accent-volt)" stroke-width="2.5" stroke-linecap="round" />
+                <text x="18" y="20.5" class="gauge-text" fill="var(--text-primary)" font-family="var(--font-display)" font-size="7" font-weight="800" text-anchor="middle">100</text>
+              </svg>
+              <span>Best Practices</span>
+            </div>
+            <div class="gauge-item">
+              <svg class="gauge-svg" viewBox="0 0 36 36">
+                <path class="gauge-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2.5" />
+                <path class="gauge-fill seo" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="var(--accent-volt)" stroke-width="2.5" stroke-linecap="round" />
+                <text x="18" y="20.5" class="gauge-text" fill="var(--text-primary)" font-family="var(--font-display)" font-size="7" font-weight="800" text-anchor="middle">100</text>
+              </svg>
+              <span>S.E.O.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google Search Result Rank #1 Simulator -->
+        <div class="serp-card">
+          <div class="serp-header">
+            <span class="serp-badge">Position #1 Organic</span>
+            <div class="serp-stars">
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            </div>
+          </div>
+          <div class="serp-title">Complete SEO &amp; Content Authority Operating System</div>
+          <div class="serp-url">https://github.com/dotusmanali/antigravity-seo</div>
+          <p class="serp-desc">Optimize Core Web Vitals (INP, CLS, LCP), calculate page E-E-A-T ratings, automate programmatic content clusters, and structure Schema JSON-LD markup files natively.</p>
+        </div>
+
+        <!-- Position Visibility climb chart -->
+        <div class="visibility-card">
+          <div class="chart-header">
+            <span>Weekly Visibility Index</span>
+            <span class="stat-trend">+140% Growth</span>
+          </div>
+          <div class="chart-body">
+            <svg class="line-chart-svg" viewBox="0 0 200 60">
+              <path d="M10 50 Q 50 45, 90 25 T 190 8" fill="none" stroke="var(--accent-volt)" stroke-width="2.5" />
+              <circle cx="190" cy="8" r="4" fill="var(--accent-volt)" />
+              <path d="M10 50 L 50 45 L 90 25 L 190 8 L 190 55 L 10 55 Z" fill="url(#chart-gradient)" opacity="0.08" />
+              <defs>
+                <linearGradient id="chart-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="var(--accent-volt)" />
+                  <stop offset="100%" stop-color="transparent" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Live Command Mockup Terminal -->
