@@ -40,6 +40,7 @@ env/
 .antigravity/settings.local.json
 .env
 .env.*
+!.env.example
 *.env
 **/.env
 **/client_secret*.json
