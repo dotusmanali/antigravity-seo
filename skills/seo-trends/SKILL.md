@@ -14,79 +14,55 @@ metadata:
   category: seo
 ---
 
-# Google Trends Analysis
-## Shared Data Cache
+# seo-trends
 
-**Step 0 -- Check shared data cache:**
+## Purpose
+Free demand-signal research using Google Trends and Google Suggest/Autocomplete. No paid API required. Use this before reaching for any paid keyword tool — it tells you if interest is rising, falling, or seasonal, and surfaces real autocomplete phrases people type.
 
-Before gathering, check `.seo-cache/` for reusable context.
-Check `.seo-cache/site-meta.json` for industry and market context.
+## When to use
+- `/seo:research <topic>` calls this as the first step for demand validation.
+- Any time you need a quick "is this worth writing about" check.
+- Seasonal content planning (e.g. PipsJournal trading topics, ForexGuru signal pages).
+- Comparing interest across competing terms or brands.
 
-## Overview
+## Tools available
+1. **google-trends MCP** (`mcp__google-trends__*`)
+   - `compare_keywords(keywords[], timeframe, geo)` — compare search interest for up to 5 keywords over time (trend line, rising/falling).
+   - `get_interest_by_region(keyword, timeframe, geo, resolution)` — see where a keyword is most popular geographically.
+   - `get_related_queries(keyword, timeframe, geo)` — find related search queries for a keyword (top and rising).
+   - `get_related_topics(keyword, timeframe, geo)` — find related topics for a keyword.
+   - `get_trending_searches(country)` — get today's trending searches.
+   - Rate limit: unofficial, ~60s cooldown if you hit a 429. Don't hammer it in a loop; batch keywords (max 5 per call).
 
-This skill leverages the `google-trends` MCP server (based on `pytrends`) to
-retrieve search interest data directly from Google Trends.
+2. **google-ads-research MCP** (`mcp__google-ads-research__*`)
+   - `get_autocomplete_suggestions(seed_keywords[])` — real Google Suggest phrases.
+   - `get_trend_index(keywords[], geo)` — lightweight trend score.
+   - `get_keyword_clusters()` — only works if Search Console service account is configured; groups GSC queries + autocomplete into intent clusters with page recommendations.
 
-**Capabilities:**
-- Interest over time (Last 5 years, last hour, etc.)
-- Interest by region (Country, sub-region, city)
-- Related queries (Top and Rising)
-- Keyword comparison (Up to 5 terms)
+## Workflow
+1. Take the seed keyword/topic from the user or from `/seo:research`.
+2. Call `google-ads-research` autocomplete first — cheap, fast, no rate limit risk. This gives real phrasing variants.
+3. Call `google-trends` compare_keywords on the top 3-5 variants to see direction (rising/flat/declining) over the last 12 months.
+4. If geo matters (Pakistan vs. global vs. US for ForexGuru's audience), pass `geo` param.
+5. Write findings to `.seo-cache/trends/<keyword-slug>.json` so repeated runs don't re-hit the rate limit same-day.
+6. Pass output into `seo-keywords-free` or `/seo:create` for brief generation.
 
-## Commands & Tools
+## What this does NOT give you
+- No search volume numbers (Trends is a relative index 0-100, not absolute searches).
+- No keyword difficulty score.
+- No CPC or competition level.
 
-The agent should use the following tools provided by the `google-trends` MCP:
+For those, see `seo-keywords-free` (Domain Rating proxy + DataForSEO fallback) or set up `google-keyword-planner` MCP if exact volume becomes a blocker for a client deliverable.
 
-| Tool | Purpose |
-|------|---------|
-| `get_interest_over_time` | Fetch historical interest data for keywords |
-| `get_interest_by_region` | Analyze where interest is highest geographically |
-| `get_related_queries` | Find trending and top related search terms |
-| `get_trending_searches` | Get currently trending searches for a region |
-| `get_suggestions` | Get keyword suggestions from Google Trends |
-
-## Workflows
-
-### 1. Market Interest Analysis
-Identify if a topic is growing, stable, or declining.
-
-**Steps:**
-1. Call `get_interest_over_time` with primary keywords.
-2. Analyze the trend line: is there a consistent upward trajectory?
-3. Identify seasonal peaks (e.g., "tax return" in April).
-
-### 2. Regional Targeting
-Find the best geographic locations for a campaign.
-
-**Steps:**
-1. Call `get_interest_by_region` for target keywords.
-2. Rank sub-regions by interest index.
-3. Suggest localized content or ad targeting based on high-interest areas.
-
-### 3. Content Opportunity Discovery
-Find "Rising" topics before they peak.
-
-**Steps:**
-1. Call `get_related_queries` for a niche.
-2. Look for "Rising" keywords with "+500%" or "Breakout" status.
-3. Propose blog post or landing page ideas for these emerging terms.
-
-## Output Format
-
-- **Trend Summary**: High-level description of interest (Growing / Stable / Seasonal).
-- **Regional Heatmap**: List of top regions with interest index (0-100).
-- **Related Topics**: Table of Top and Rising queries.
-- **Actionable Insight**: One sentence on how to use this data for SEO.
-
-## Error Handling
-
-| Scenario | Action |
-|----------|--------|
-| Rate Limit (429) | Google Trends has aggressive rate limiting. Wait 60 seconds and retry. Inform the user of the wait. |
-| No Data | If a query is too niche, Trends may return no data. Suggest broader terms. |
-| Invalid Region | Ensure ISO country codes (e.g., "US", "GB") are used. |
-
-## Write to shared data cache
-
-After completing analysis, write a summary to `.seo-cache/trends.json`.
-Include `top_regions`, `rising_queries`, and `trend_direction`.
+## Output format
+```json
+{
+  "seed": "forex trading signals",
+  "geo": "PK",
+  "autocomplete": ["forex trading signals free", "forex trading signals telegram", "..."],
+  "trend_direction": "rising",
+  "trend_window": "12m",
+  "related_rising": ["..."],
+  "notes": "Spike in March, likely seasonal — cross-check before committing a content calendar slot."
+}
+```

@@ -23,6 +23,8 @@ Understand the opportunity and landscape: keyword demand, SERP intent, competito
 
 ## Route
 
+- seo-trends
+- seo-keywords-free
 - keyword-research
 - serp-analysis
 - content-gap-analysis

@@ -1,7 +1,7 @@
 {
   "name": "antigravity-seo",
   "version": "2.0.0",
-  "description": "Complete SEO analysis & Blog creation ecosystem for Antigravity. 2 orchestrators, 57 specialist workflows, 29 agent profiles, shared cache, deterministic runners, and MCP integrations.",
+  "description": "Complete SEO analysis & Blog creation ecosystem for Antigravity. 2 orchestrators, 60 specialist workflows, 32 agent profiles, shared cache, deterministic runners, and MCP integrations.",
   "author": {
     "name": "dotusmanali",
     "url": "https://github.com/dotusmanali"
@@ -57,7 +57,7 @@
   "interface": {
     "displayName": "Antigravity SEO & Blog Suite",
     "shortDescription": "Run SEO audits, content quality analysis, and automated blog creation.",
-    "longDescription": "Antigravity SEO & Blog Suite combines a professional local SEO analysis engine with a complete blog creation and content authority operating system. Includes 2 orchestrators, 57 specialist workflows, 29 agent profiles, 3 global rules, shared cache artifacts, MCP integrations, and deterministic headless runners.",
+    "longDescription": "Antigravity SEO & Blog Suite combines a professional local SEO analysis engine with a complete blog creation and content authority operating system. Includes 2 orchestrators, 60 specialist workflows, 32 agent profiles, 3 global rules, shared cache artifacts, MCP integrations, and deterministic headless runners.",
     "developerName": "dotusmanali",
     "category": "Productivity",
     "capabilities": [

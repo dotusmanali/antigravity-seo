@@ -4,13 +4,13 @@
 
 # Antigravity SEO & Blog Suite — Complete SEO & Content Ecosystem for Antigravity
 
-A complete, production-grade SEO analysis and blog creation ecosystem built for **Antigravity** (IDE, CLI, 2.0). Features 2 orchestrators, 57 specialist workflows, 29 AI agent profiles, 3 global rules, MCP integrations, shared cache artifacts, and deterministic headless runners.
+A complete, production-grade SEO analysis and blog creation ecosystem built for **Antigravity** (IDE, CLI, 2.0). Features 2 orchestrators, 60 specialist workflows, 32 AI agent profiles, 3 global rules, MCP integrations, shared cache artifacts, and deterministic headless runners.
 
 [![GitHub license](https://img.shields.io/github/license/dotusmanali/antigravity-seo?style=flat-square&color=blue)](LICENSE)
 [![GitHub release](https://img.shields.io/github/v/release/dotusmanali/antigravity-seo?style=flat-square&color=orange)](https://github.com/dotusmanali/antigravity-seo/releases)
 [![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue?style=flat-square)](pyproject.toml)
-[![SEO Workflows](https://img.shields.io/badge/Workflows-57-emerald?style=flat-square)](docs/COMMANDS.md)
-[![AI Agents](https://img.shields.io/badge/AI_Agents-29-blueviolet?style=flat-square)](agents/)
+[![SEO Workflows](https://img.shields.io/badge/Workflows-60-emerald?style=flat-square)](docs/COMMANDS.md)
+[![AI Agents](https://img.shields.io/badge/AI_Agents-32-blueviolet?style=flat-square)](agents/)
 
 ## Contents
 
@@ -70,7 +70,7 @@ New-Item -ItemType Junction -Path "$env:USERPROFILE\.gemini\config\plugins\antig
 pip install -r requirements.txt
 ```
 
-Restart Antigravity. All 57 skills and 29 agents are auto-discovered.
+Restart Antigravity. All 60 skills and 32 agents are auto-discovered.
 
 ## Quick Start
 
@@ -106,8 +106,8 @@ Antigravity SEO is designed as a Antigravity-first routing layer: the user can a
 flowchart LR
   user["User prompt<br/>natural language or /seo"] --> orchestrator["skills/seo/SKILL.md<br/>main orchestrator"]
   orchestrator --> cache[".seo-cache<br/>shared evidence"]
-  orchestrator --> skills["26 specialist<br/>SEO workflows"]
-  skills --> agents["24 TOML agents<br/>parallel analysis slices"]
+  orchestrator --> skills["29 specialist<br/>SEO workflows"]
+  skills --> agents["27 TOML agents<br/>parallel analysis slices"]
   skills --> scripts["scripts/<br/>deterministic runners"]
   scripts --> output["output/<br/>Markdown, JSON, HTML, PDF"]
   cache --> skills

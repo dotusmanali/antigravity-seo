@@ -332,6 +332,39 @@ def run_specialist(skill: str, target: str, output_root: Path | None = None) -> 
         report = simple_report("SEO Drift Summary", None, summary, issues, recommendations)
         return write_specialist_artifacts(skill, target, result, output_dir_for(skill, target, output_root), "DRIFT-SUMMARY.md", report, ROOT / ".seo-cache" / "drift.json")
 
+    if skill == "seo-trends":
+        status = "ready"
+        summary = [
+            "Market interest and trends analysis is available via free Google Trends (pytrends MCP) and Google Ads suggest endpoints."
+        ]
+        issues = []
+        recommendations = [
+            "Make sure 'google-trends' and 'google-ads-research' MCP servers are configured in your mcp_config.json."
+        ]
+        return run_capability_summary(skill, target, status, summary, issues, recommendations, ["google-trends", "google-ads-research"], output_root)
+
+    if skill == "seo-keywords-free":
+        status = "ready"
+        summary = [
+            "Competitor authority and Domain Rating is fetched via free Ahrefs public API endpoint."
+        ]
+        issues = []
+        recommendations = [
+            "Ensure the scripts/ahrefs_dr_free.py wrapper is callable."
+        ]
+        return run_capability_summary(skill, target, status, summary, issues, recommendations, ["ahrefs_dr_free"], output_root)
+
+    if skill == "seo-supervisor":
+        status = "ready"
+        summary = [
+            "Master Supervisor orchestration is active. It coordinates tasks across the SEO and Blog subsystems."
+        ]
+        issues = []
+        recommendations = [
+            "Ensure the individual SEO and Blog skills are registered and working correctly."
+        ]
+        return run_capability_summary(skill, target, status, summary, issues, recommendations, ["seo-supervisor"], output_root)
+
     if skill in {"seo-dataforseo", "seo-firecrawl", "seo-image-gen", "seo-maps"}:
         setup = {
             "seo-dataforseo": "DataForSEO MCP server is required for live SERP, keyword, backlink, and AI visibility data.",

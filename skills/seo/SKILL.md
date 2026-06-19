@@ -19,7 +19,7 @@ Use the matching specialist skill directly when the request is narrow.
 **Scripts:** Located at the plugin root `scripts/` directory.
 
 Comprehensive SEO analysis across all industries (SaaS, local services,
-e-commerce, publishers, agencies). Orchestrates 26 specialized sub-skills and 24 Antigravity
+e-commerce, publishers, agencies). Orchestrates 29 specialized sub-skills and 27 Antigravity
 agent profiles, with optional MCP-backed extensions for DataForSEO, Firecrawl, and image generation.
 
 ## Shared Data Cache
@@ -194,7 +194,7 @@ Weighted aggregate of all categories:
 
 ## Sub-Skills
 
-This skill orchestrates 26 specialized sub-skills, including optional extension-backed workflows:
+This skill orchestrates 29 specialized sub-skills, including optional extension-backed workflows:
 
 1. **seo-audit** -- Full website audit with parallel delegation
 2. **seo-page** -- Deep single-page analysis
@@ -222,6 +222,9 @@ This skill orchestrates 26 specialized sub-skills, including optional extension-
 24. **seo-dataforseo** -- Live SEO data via DataForSEO MCP (extension)
 25. **seo-image-gen** -- AI image generation for SEO assets via Gemini (extension)
 26. **seo-flow** -- FLOW framework integration (Find -> Leverage -> Optimize -> Win, 41 AI prompts, CC BY 4.0)
+27. **seo-trends** -- Analyze market trends and search interest using Google Trends (via pytrends MCP)
+28. **seo-keywords-free** -- Free domain authority (Ahrefs Domain Rating) lookup for your own domains and competitors
+29. **seo-supervisor** -- Master Supervisor orchestrator bridging the SEO and Blog subsystems
 
 ## Subagents
 
@@ -243,7 +246,10 @@ For parallel analysis during audits:
 - `seo-ecommerce` -- Product schema, marketplace intel (conditional: e-commerce detected)
 - `seo-dataforseo` -- Live SERP, keyword, backlink, local SEO data (extension, optional)
 - `seo-image-gen` -- SEO image audit and generation plan (extension, optional)
-- `seo-firecrawl` -- Full-site crawl and site mapping (extension, optional; used by audit for URL discovery)
+- seo-firecrawl -- Full-site crawl and site mapping (extension, optional; used by audit for URL discovery)
+- seo-trends -- Google Trends and autocomplete queries analysis
+- seo-keywords-free -- Ahrefs free domain rating authority checking
+- seo-supervisor -- Master Supervisor coordination agent
 
 ## Error Handling
 
