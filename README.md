@@ -156,24 +156,18 @@ To enrich audits with real-world live data, configure your extensions inside `mc
 
 ### Setting Up Local Google Trends MCP:
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/dotusmanali/GoogleTrendsMCP.git G:\skills\GoogleTrendsMCP
+This plugin depends on a local clone of the Google Trends MCP server to fetch trend data. Follow these steps to configure it in your workspace:
 
-# 2. Create virtual environment
-cd G:\skills\GoogleTrendsMCP
-python -m venv venv
-
-# 3. Install requirements
-venv\Scripts\pip install -r requirements.txt
-```
+1. **Clone the Server Repository**: Clone the Google Trends MCP repository (forked under your username) into your workspace directory.
+2. **Create a Virtual Environment**: Initialize a Python virtual environment (`python -m venv venv`) within the cloned server directory.
+3. **Install Requirements**: Install the dependencies using the server's `requirements.txt` file.
 
 > [!TIP]
 > **Automated Setup Prompt for Antigravity (Copy & Paste):**
-> You can copy and paste the following prompt directly into your Antigravity assistant chat to fully clone and set up the `GoogleTrendsMCP` server environment:
+> You can ask your Antigravity assistant to automate the entire installation for you. Copy and paste the following prompt in the chat:
 > 
 > ```text
-> Antigravity, please clone the repository from https://github.com/dotusmanali/GoogleTrendsMCP.git into G:\skills\GoogleTrendsMCP, create a Python virtual environment there, install its requirements, and ensure the main project requirements inside G:\skills\agy-seo\requirements.txt are also fully installed on my PC.
+> Antigravity, please check the google-trends command path in mcp_config.json, clone the GoogleTrendsMCP repository to that target location, configure its Python virtual environment, install its dependencies, and ensure the main project requirements inside requirements.txt are fully installed in my environment.
 > ```
 
 The workspace `mcp_config.json` is pre-configured to execute this server via your local clone.
