@@ -2,13 +2,13 @@
   <img src="screenshots/cover-image.svg" alt="Antigravity SEO & Blog Suite Banner" width="100%">
 </p>
 
-# Antigravity SEO & Blog Suite — Complete SEO & Content Ecosystem
+# Antigravity SEO — The Agency Tool to Rank #1
 
-A production-grade, state-of-the-art SEO analysis and automated blog creation ecosystem built natively for the **Antigravity** developer platform. 
+An Antigravity plugin for SEO agencies. Handle everything from creating a new blog to ranking on the 1st page and outperforming competitors.
 
 This suite bridges deep-dive search intelligence with automated editorial workflows. It combines determinism (via local Python runners) with real-time scraping and official APIs (via MCP) to deliver expert-level audits, keyword research, core visual charts, and publish-ready content.
 
-[![Workflows Count](https://img.shields.io/badge/Workflows-60-emerald?style=flat-square)](skills/)
+[![Workflows Count](https://img.shields.io/badge/Workflows-83-emerald?style=flat-square)](skills/)
 [![AI Agents Count](https://img.shields.io/badge/AI_Agents-32-blueviolet?style=flat-square)](agents/)
 [![Python Version](https://img.shields.io/badge/Python-3.11%2B-blue?style=flat-square)](pyproject.toml)
 [![License](https://img.shields.io/badge/License-MIT-orange?style=flat-square)](LICENSE)

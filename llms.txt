@@ -1,6 +1,6 @@
-# Antigravity SEO & Blog Suite
+# Antigravity SEO
 
-Antigravity SEO & Blog Suite is a production-grade, AI-native SEO analysis and blog creation ecosystem built for the Antigravity platform. It features 2 orchestrators, 57 specialist workflows, 29 AI agent profiles, and deterministic Python runners.
+Antigravity SEO is an Antigravity plugin for SEO agencies. Handle everything from creating a new blog to ranking on the 1st page and outperforming competitors. It features 2 orchestrators, 83 specialist workflows, 32 AI agent profiles, and deterministic Python runners.
 
 ## Core Capabilities
 - **Full SEO Auditing**: Automated technical, content (E-E-A-T), schema, performance, and GEO analysis.

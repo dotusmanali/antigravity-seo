@@ -1,6 +1,6 @@
-# Antigravity SEO & Blog Suite
+# Antigravity SEO
 
-A production-grade, state-of-the-art SEO analysis and automated blog creation ecosystem built natively for the **Antigravity** developer platform. It coordinates deep-dive search intelligence with automated editorial pipelines, combining deterministic local Python runners with live APIs.
+An Antigravity plugin for SEO agencies. Handle everything from creating a new blog to ranking on the 1st page and outperforming competitors. It coordinates deep-dive search intelligence with automated editorial pipelines, combining deterministic local Python runners with live APIs.
 
 ---
 
