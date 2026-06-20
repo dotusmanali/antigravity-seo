@@ -1,6 +1,6 @@
 # Antigravity SEO
 
-Antigravity SEO is an Antigravity plugin for SEO agencies. Handle everything from creating a new blog to ranking on the 1st page and outperforming competitors. It features 2 orchestrators, 83 specialist workflows, 32 AI agent profiles, and deterministic Python runners.
+Antigravity SEO is an Antigravity plugin for SEO agencies. Handle everything from creating a new blog to ranking on the 1st page and outperforming competitors. It features 2 orchestrators, 81 specialist workflows, 32 AI agent profiles, and deterministic Python runners.
 
 ## Core Capabilities
 - **Full SEO Auditing**: Automated technical, content (E-E-A-T), schema, performance, and GEO analysis.

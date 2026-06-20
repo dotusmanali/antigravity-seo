@@ -40,26 +40,26 @@ flowchart TD
     Run -->|"Blog Tasks"| Blog["Blog Orchestrator<br/>(skills/blog/SKILL.md)"]
   end
 
-  subgraph SEOSubsystem ["SEO Subsystem (29 Sub-skills & 27 Agents)"]
+  subgraph SEOSubsystem ["SEO Subsystem (44 Sub-skills & 27 Agents)"]
     SEO --> SEO_Audits["Audits & Technical:<br/>- seo-technical (Agent)<br/>- seo-audit (Skill)<br/>- seo-page (Skill)<br/>- seo-content (Agent)<br/>- seo-schema (Agent)<br/>- seo-images (Agent)<br/>- seo-performance (Agent)<br/>- seo-sitemap (Agent)<br/>- seo-visual (Agent)<br/>- seo-hreflang (Agent)"]
     SEO --> SEO_Intel["Search & Keyword Intel:<br/>- keyword-research (Skill)<br/>- seo-trends (Agent/Skill)<br/>- seo-keywords-free (Agent/Skill)<br/>- seo-backlinks (Agent)<br/>- competitor-analysis (Skill)<br/>- content-gap-analysis (Skill)<br/>- serp-analysis (Skill)"]
     SEO --> SEO_Advanced["Advanced & Local:<br/>- seo-geo (Agent)<br/>- seo-local (Agent)<br/>- seo-maps (Agent)<br/>- seo-programmatic (Agent)<br/>- seo-ecommerce (Agent)<br/>- seo-drift (Agent)"]
   end
-
-  subgraph BlogSubsystem ["Blog Subsystem (30 Sub-skills & 5 Agents)"]
+ 
+  subgraph BlogSubsystem ["Blog Subsystem (35 Sub-skills & 5 Agents)"]
     Blog --> Blog_Plan["Planning & Strategy:<br/>- blog-strategy (Skill)<br/>- blog-calendar (Skill)<br/>- blog-cluster (Skill)<br/>- blog-discourse (Skill)"]
     Blog --> Blog_Create["Content Creation:<br/>- blog-brief (Skill)<br/>- blog-outline (Skill)<br/>- blog-write (Agent/Skill)<br/>- blog-rewrite (Skill)"]
     Blog --> Blog_Opt["Optimization & QA:<br/>- blog-seo-check (Skill)<br/>- blog-schema (Skill)<br/>- blog-factcheck (Skill)<br/>- blog-geo (Skill)"]
     Blog --> Blog_Assets["Media & Localization:<br/>- blog-chart (SVG Visuals)<br/>- blog-image (Gemini Gen)<br/>- blog-audio (TTS Narration)<br/>- blog-multilingual (Skill)<br/>- blog-translate (Agent)<br/>- blog-localize (Skill)"]
   end
-
+ 
   subgraph ToolsLayer ["MCP Servers & Data Layer"]
     SEO_Audits -.-> MCP_Gate["mcp_config.json"]
     SEO_Intel -.-> MCP_Gate
     SEO_Advanced -.-> MCP_Gate
     Blog_Create -.-> MCP_Gate
     Blog_Assets -.-> MCP_Gate
-    
+     
     MCP_Gate --> MCP_Trends["google-trends (Pytrends)"]
     MCP_Gate --> MCP_Ads["google-ads-research"]
     MCP_Gate --> MCP_Planner["google-keyword-planner"]
@@ -67,25 +67,27 @@ flowchart TD
     MCP_Gate --> MCP_Crawl["firecrawl"]
     MCP_Gate --> MCP_Screen["nanobanana"]
   end
-  
+   
   Cache -.->|"Read/Write Context"| SEOSubsystem
   Cache -.->|"Read/Write Context"| BlogSubsystem
-
+ 
   classDef default fill:#07131c,stroke:#00d7e6,color:#f5fbff,stroke-width:1.2px
   classDef supervisor fill:#1b1525,stroke:#a78bfa,color:#fff7ed,stroke-width:2px
   classDef cache fill:#0c2220,stroke:#22c55e,color:#ecfeff,stroke-width:1.5px
   classDef mcp fill:#1a1a0c,stroke:#ff9f1c,color:#fff7ed,stroke-width:1.5px
-  
+   
   class Run supervisor
   class Cache cache
   class MCP_Trends,MCP_Ads,MCP_Planner,MCP_DFS,MCP_Crawl,MCP_Screen mcp
 ```
-
+ 
+<!-- Count based on G:\skills\agy-seo\skills\**\SKILL.md (81) and G:\skills\agy-seo\agents\**\*.toml (32) -->
+ 
 ### The Three Core Engines:
 1. **SEO Router (`skills/seo/SKILL.md`)**:
-   * Coordinates 29 sub-skills and 27 agent profiles. Performs single-page or site-wide analysis including Core Web Vitals (INP-focused), schema verification, authority audits, competitor gap analyses, and local map-pack checks.
+   * Coordinates 44 sub-skills and 27 agent profiles. Performs single-page or site-wide analysis including Core Web Vitals (INP-focused), schema verification, authority audits, competitor gap analyses, and local map-pack checks.
 2. **Blog Router (`skills/blog/SKILL.md`)**:
-   * Coordinates 30 sub-skills, 12 content templates, and 5 specialized agents. Handles editorial calendars, outlines, EEAT assessments, translation/localization, and article drafts.
+   * Coordinates 35 sub-skills, 12 content templates, and 5 specialized agents. Handles editorial calendars, outlines, EEAT assessments, translation/localization, and article drafts.
 3. **Master Supervisor (`/seo:run`)**:
    * The top-level coordinator that bridges the SEO and Blog repositories. It reads multi-step prompts (e.g., *"Find trends and write a draft"*), plans the roadmap, verifies cache validation (Fix 3), evaluates outputs via a lightweight check (Fix 2), and executes loop logic safely (cap: 5 iterations).
 

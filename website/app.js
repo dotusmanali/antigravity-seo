@@ -90,7 +90,9 @@ function setupTerminalSimulator() {
     const textToType = cmdData.input;
     for (let i = 0; i < textToType.length; i++) {
       promptLine.textContent += textToType[i];
-      terminalBody.scrollTop = terminalBody.scrollHeight;
+      requestAnimationFrame(() => {
+        terminalBody.scrollTop = terminalBody.scrollHeight;
+      });
       await new Promise(resolve => setTimeout(resolve, 35));
     }
 
@@ -105,7 +107,9 @@ function setupTerminalSimulator() {
       line.innerHTML = output.text.replace(/\n/g, '<br>');
       
       terminalBody.appendChild(line);
-      terminalBody.scrollTop = terminalBody.scrollHeight;
+      requestAnimationFrame(() => {
+        terminalBody.scrollTop = terminalBody.scrollHeight;
+      });
       await new Promise(resolve => setTimeout(resolve, output.type === 'system' ? 300 : 150));
     }
 

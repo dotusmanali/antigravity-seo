@@ -1,7 +1,7 @@
 {
   "name": "antigravity-seo",
   "version": "2.0.0",
-  "description": "An Antigravity plugin for SEO agencies. Handle everything from creating a new blog to ranking on the 1st page and outperforming competitors. Includes 2 orchestrators, 83 workflows, and 32 agents.",
+  "description": "An Antigravity plugin for SEO agencies. Handle everything from creating a new blog to ranking on the 1st page and outperforming competitors. Includes 2 orchestrators, 81 workflows, and 32 agents.",
   "author": {
     "name": "dotusmanali",
     "url": "https://github.com/dotusmanali"
@@ -57,7 +57,7 @@
   "interface": {
     "displayName": "Antigravity SEO",
     "shortDescription": "An Antigravity plugin for SEO agencies to generate content, audit performance, and rank on the 1st page.",
-    "longDescription": "Antigravity SEO is a complete tool for SEO agencies. Handle everything from creating a new blog to ranking on the 1st page and outperforming competitors. Includes 2 orchestrators, 83 specialist workflows, 32 agent profiles, shared cache artifacts, MCP integrations, and deterministic headless runners.",
+    "longDescription": "Antigravity SEO is a complete tool for SEO agencies. Handle everything from creating a new blog to ranking on the 1st page and outperforming competitors. Includes 2 orchestrators, 81 specialist workflows, 32 agent profiles, shared cache artifacts, MCP integrations, and deterministic headless runners.",
     "developerName": "dotusmanali",
     "category": "Productivity",
     "capabilities": [

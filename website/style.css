@@ -16,7 +16,7 @@
   
   --text-primary: oklch(98% 0.005 255);     /* Crisp slate ice-white */
   --text-secondary: oklch(78% 0.01 255);    /* Low-contrast readable body */
-  --text-muted: oklch(52% 0.01 255);        /* Structural subtext */
+  --text-muted: oklch(65% 0.01 255);        /* Structural subtext */
   
   --border-default: oklch(100% 0 0 / 6%);   /* Precision structural gridline */
   --border-active: oklch(88% 0.18 115 / 35%);
@@ -550,7 +550,7 @@ header {
   border-left-color: var(--accent-volt);
 }
 
-.stat-item h3 {
+.stat-item h3, .stat-item .stat-number {
   font-family: var(--font-display);
   font-size: 2.8rem;
   font-weight: 800;
@@ -878,7 +878,7 @@ footer {
   margin-bottom: 60px;
 }
 
-.footer-col h4 {
+.footer-col h4, .footer-col-title {
   font-family: var(--font-display);
   color: var(--text-primary);
   font-size: 0.85rem;
@@ -926,6 +926,7 @@ footer {
   font-size: 1.05rem;
   letter-spacing: -0.04em;
   color: var(--accent-volt);
+  margin-bottom: 24px;
 }
 
 .social-links {
