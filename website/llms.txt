@@ -25,10 +25,10 @@ All commands are prefixed with the `/seo:` namespace to keep prompts simple and 
 The top-level planning supervisor. It parses multi-step user prompts, builds execution roadmaps, validates caching constraints, evaluates intermediate outputs using verification models, and securely loops execution up to 5 times.
 
 ### SEO Engine
-Executes technical, speed, accessibility, map pack, and competitive position scans. Includes 29 sub-skills and 27 expert agent profiles.
+Executes technical, speed, accessibility, map pack, and competitive position scans. Includes 44 sub-skills and 27 expert agent profiles.
 
 ### Blog & Content Engine
-Produces clusters, blueprints, briefs, drafts, multilingual translations, audio narrations (TTS), and responsive inline SVG graphics. Includes 30 sub-skills and 5 custom editorial agents.
+Produces clusters, blueprints, briefs, drafts, multilingual translations, audio narrations (TTS), and responsive inline SVG graphics. Includes 35 sub-skills and 5 custom editorial agents.
 
 ---
 

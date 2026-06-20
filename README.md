@@ -8,7 +8,7 @@ An Antigravity plugin for SEO agencies. Handle everything from creating a new bl
 
 This suite bridges deep-dive search intelligence with automated editorial workflows. It combines determinism (via local Python runners) with real-time scraping and official APIs (via MCP) to deliver expert-level audits, keyword research, core visual charts, and publish-ready content.
 
-[![Workflows Count](https://img.shields.io/badge/Workflows-83-emerald?style=flat-square)](skills/)
+[![Workflows Count](https://img.shields.io/badge/Workflows-81-emerald?style=flat-square)](skills/)
 [![AI Agents Count](https://img.shields.io/badge/AI_Agents-32-blueviolet?style=flat-square)](agents/)
 [![Python Version](https://img.shields.io/badge/Python-3.11%2B-blue?style=flat-square)](pyproject.toml)
 [![License](https://img.shields.io/badge/License-MIT-orange?style=flat-square)](LICENSE)

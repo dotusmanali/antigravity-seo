@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google-site-verification" content="UItsLT8Wqb931vhC8VzW6lyncaGgmXYHC1rwUiwVWwA" />
+  
+  <!-- SEO Meta Tags -->
+  <title>Core Features &amp; Capabilities — Antigravity SEO</title>
+  <meta name="description" content="Explore core features of the Antigravity SEO suite: interactive CLI auditing, headless Playwright crawlers, and the dynamic SVG blog-chart visualization engine.">
+  <meta name="keywords" content="antigravity, seo, features, cli, crawler, svg-charts, playwright">
+  <meta name="author" content="dotusmanali">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Core Features &amp; Capabilities — Antigravity SEO">
+  <meta property="og:description" content="Explore core features of the Antigravity SEO suite: interactive CLI auditing, headless Playwright crawlers, and the dynamic SVG blog-chart visualization engine.">
+  <meta property="og:type" content="website">
+  
+  <!-- Preconnect & Asynchronous Google Fonts for PageSpeed 100 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800;900&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800;900&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800;900&family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+  </noscript>
+
+  <!-- CSS Preload -->
+  <link rel="preload" href="style.css" as="style">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- JS Deferred -->
+  <script src="app.js" defer></script>
+  
+  <!-- Premium Minimalist SVG Favicon (Volt SEO emblem) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2305080d'/%3E%3Cpath d='M30 70 L50 30 L70 70' fill='none' stroke='%23dfff4f' stroke-width='10' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M50 30 L50 90' fill='none' stroke='%23dfff4f' stroke-width='6' stroke-dasharray='10 10'/%3E%3C/svg%3E">
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="/" class="logo-wrapper">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12 2L1 21h22L12 2zm0 4l7.5 13h-15L12 6zm-1 4v4h2v-4h-2zm0 6v2h2v-2h-2z"/>
+          </svg>
+        </div>
+        <span>Antigravity SEO</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/architecture">Architecture</a></li>
+        <li><a href="/features" class="active" style="color: var(--accent-volt);">Features</a></li>
+        <li><a href="/setup-guide">Setup Guide</a></li>
+        <li><a href="/#install">Install</a></li>
+      </ul>
+      <a href="https://github.com/dotusmanali/antigravity-seo" class="nav-cta" target="_blank" rel="noopener noreferrer">View Repository</a>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main>
+    <!-- Page Header Hero -->
+    <section class="container" style="padding: 100px 32px 60px;">
+      <div class="section-title" style="text-align: left; margin-bottom: 40px;">
+        <span style="color: var(--accent-volt); font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 12px;">ENGINE CAPABILITIES</span>
+        <h1>Advanced Platform Features</h1>
+        <p style="margin: 20px 0 0; max-width: 720px; font-size: 1.1rem; line-height: 1.7;">
+          Discover the core engines powering Antigravity SEO: real-time CLI simulations, headless browser crawling metrics, and clean inline SVG chart generation.
+        </p>
+      </div>
+    </section>
+
+    <!-- Terminal simulator feature section -->
+    <section class="container" style="margin-bottom: 100px;">
+      <div class="glass-card" style="margin-bottom: 48px; padding: 40px;">
+        <h2 style="font-family: var(--font-display); font-size: 1.5rem; text-transform: uppercase; margin-bottom: 16px; color: var(--text-primary);">Interactive CLI Auditing</h2>
+        <p style="margin-bottom: 32px; color: var(--text-secondary); line-height: 1.6; max-width: 800px;">
+          Execute complex SEO workflows straight from the Antigravity console. The system translates slash commands like <code>/seo:run</code>, <code>/seo:audit</code>, and <code>/seo:create</code> into multi-step agent actions. Try simulating commands below to view live mock output.
+        </p>
+        
+        <!-- Live Command Mockup Terminal (Reuses app.js simulator) -->
+        <div class="terminal-section" style="margin-bottom: 20px;">
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <div class="terminal-controls">
+                <div class="control-dot red"></div>
+                <div class="control-dot yellow"></div>
+                <div class="control-dot green"></div>
+              </div>
+              <div class="terminal-title">antigravity-seo-cli</div>
+              <div></div>
+            </div>
+            <div class="terminal-body" id="terminal-body" style="height: 320px;">
+              <!-- Terminal Content Typed by JS -->
+            </div>
+          </div>
+          <div class="command-triggers">
+            <button class="trigger-tag active" data-command="seo:run">/seo:run</button>
+            <button class="trigger-tag" data-command="seo:audit">/seo:audit</button>
+            <button class="trigger-tag" data-command="seo:create">/seo:create</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chart generation and SVG visuals section -->
+    <section class="container" style="margin-bottom: 100px;">
+      <div class="grid-3" style="margin-bottom: 0; align-items: stretch;">
+        <!-- Left: Text content -->
+        <div class="glass-card" style="grid-column: span 2; padding: 40px;">
+          <h2 style="font-family: var(--font-display); font-size: 1.5rem; text-transform: uppercase; margin-bottom: 16px; color: var(--text-primary);">Visual SEO Engine: blog-chart</h2>
+          <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;">
+            Content visualizers often break dark-mode themes, degrade layouts on mobile screens, or bloat websites with heavy external JS libraries. Antigravity SEO integrates a lightweight python visualization compiler called <code>blog-chart</code>.
+          </p>
+          
+          <h3 style="font-family: var(--font-display); font-size: 0.95rem; text-transform: uppercase; margin-bottom: 12px; color: var(--accent-volt);">Automated Plotting Features:</h3>
+          <ul class="card-bullets" style="margin-bottom: 0;">
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <strong>Light/Dark Adaptability</strong>: Uses <code>currentColor</code> markers and stroke elements that dynamically inherit matching themes.
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <strong>Vector-Based Output</strong>: Native SVG charts with zero blur, scalable to any desktop or viewport width.
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+              <strong>Layout Blueprints</strong>: Automated output supports Radar charts, Lollipop indicators, Area charts, and Donut segments.
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Right: Showcase SVG Graphic -->
+        <div class="glass-card orange" style="padding: 40px; justify-content: center; align-items: center;">
+          <div class="footer-logo" style="margin-bottom: 16px; font-size: 0.85rem; letter-spacing: 0.05em; color: var(--text-muted);">Interactive Layout</div>
+          <!-- Donut SVG visual -->
+          <svg viewBox="0 0 100 100" style="width: 140px; height: 140px; margin-bottom: 24px;">
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="rgba(255,255,255,0.05)" stroke-width="12" />
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="var(--accent-volt)" stroke-width="12" stroke-dasharray="188.4 251.2" stroke-dashoffset="0" stroke-linecap="round" />
+            <circle cx="50" cy="50" r="40" fill="transparent" stroke="var(--accent-blue)" stroke-width="12" stroke-dasharray="50.2 251.2" stroke-dashoffset="-188.4" stroke-linecap="round" />
+            <text x="50" y="55" fill="var(--text-primary)" font-family="var(--font-display)" font-size="10" font-weight="900" text-anchor="middle">75%</text>
+          </svg>
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; text-align: center; color: var(--text-secondary);">
+            Authority Cluster Ratio
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Headless browser crawler section -->
+    <section class="container" style="margin-bottom: 120px;">
+      <div class="glass-card purple" style="padding: 40px;">
+        <h2 style="font-family: var(--font-display); font-size: 1.5rem; text-transform: uppercase; margin-bottom: 16px; color: var(--text-primary);">Headless Page Crawler &amp; Auditor</h2>
+        <p style="margin-bottom: 32px; color: var(--text-secondary); line-height: 1.6; max-width: 800px;">
+          Rather than relying on basic HTTP header checks, Antigravity SEO spawns clean, headless browser sessions via Playwright. This ensures technical analysis matches Googlebot's javascript rendering capabilities.
+        </p>
+        
+        <div class="grid-3" style="margin-bottom: 0; gap: 24px;">
+          <div style="background: var(--bg-tertiary); border: 1px solid var(--border-default); padding: 24px; border-radius: 6px;">
+            <h3 style="color: var(--accent-rust); font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">Visual Layout Shifts</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Monitors Largest Contentful Paint (LCP) and Cumulative Layout Shift (CLS) on device emulation targets directly, preventing SEO drops.</p>
+          </div>
+          <div style="background: var(--bg-tertiary); border: 1px solid var(--border-default); padding: 24px; border-radius: 6px;">
+            <h3 style="color: var(--accent-rust); font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">Schema Verification</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Extracts structured JSON-LD payloads automatically and cross-references structural attributes against Schema.org specification rules.</p>
+          </div>
+          <div style="background: var(--bg-tertiary); border: 1px solid var(--border-default); padding: 24px; border-radius: 6px;">
+            <h3 style="color: var(--accent-rust); font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; margin-bottom: 12px;">Parallel Crawling</h3>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">Uses lightweight page sessions to parse internal links concurrently, indexing comprehensive page data structures in seconds.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col" style="grid-column: span 2;">
+          <div class="footer-logo">Antigravity SEO</div>
+          <p style="color: var(--text-secondary); line-height: 1.6; max-width: 320px;">An Antigravity plugin built for SEO agencies to generate content, audit performance, and rank on the 1st page.</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="/architecture">Architecture</a></li>
+            <li><a href="/features">Features</a></li>
+            <li><a href="/setup-guide">Setup Guide</a></li>
+            <li><a href="/#install">Install</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Developer</div>
+          <ul class="footer-links">
+            <li><a href="https://github.com/dotusmanali/antigravity-seo" target="_blank" rel="noopener noreferrer">GitHub Project</a></li>
+            <li><a href="https://github.com/dotusmanali" target="_blank" rel="noopener noreferrer">Author Profile</a></li>
+            <li><a href="/llms.txt" target="_blank">LLMs Directory</a></li>
+            <li><a href="/sitemap.xml" target="_blank">Sitemap</a></li>
+            <li><a href="/robots.txt" target="_blank">Robots.txt</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Antigravity SEO Suite. Custom designed by <a href="https://github.com/dotusmanali" style="color: var(--text-primary); font-weight: 600;" target="_blank" rel="noopener noreferrer">dotusmanali</a>.</p>
+        <div class="social-links">
+          <a href="https://github.com/dotusmanali/antigravity-seo" class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
