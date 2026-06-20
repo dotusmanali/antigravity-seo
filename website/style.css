@@ -36,6 +36,11 @@
   padding: 0;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 html {
   scroll-behavior: smooth;
   background-color: var(--bg-primary);
@@ -135,6 +140,7 @@ header {
 }
 
 .nav-cta {
+  color: var(--text-primary);
   background: var(--bg-secondary);
   border: 1px solid var(--border-default);
   padding: 12px 24px;
@@ -890,11 +896,17 @@ footer {
 }
 
 .footer-links a {
+  color: var(--text-secondary);
   transition: var(--transition-fast);
 }
 
 .footer-links a:hover {
   color: var(--accent-volt);
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .footer-bottom {
