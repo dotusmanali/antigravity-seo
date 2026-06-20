@@ -1,0 +1,20 @@
+# Ignore all python files and folders to prevent Vercel build conflicts
+agents/
+commands/
+hooks/
+hooks.json
+rules/
+schema/
+scripts/
+skills/
+.env
+.env.example
+.git
+.gitignore
+.gitattributes
+CHANGELOG.md
+README.md
+llms.txt
+mcp_config.json
+pyproject.toml
+requirements.txt
